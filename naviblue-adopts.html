@@ -262,7 +262,7 @@ section{position:relative;z-index:1;}
 .commercial-box p{font-size:.82rem;color:var(--text-muted);line-height:1.9;margin-bottom:.9rem;}
 .commercial-price-tag{font-family:'Cormorant Garamond',serif;font-size:1.75rem;color:var(--gold3);display:inline-block;margin-bottom:.9rem;}
 .contract-dl-btn{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.3rem;padding:.65rem 1.4rem;border:1px solid rgba(184,149,106,.4);border-radius:30px;color:var(--gold2);font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;background:rgba(184,149,106,.07);cursor:pointer;transition:all .3s;text-decoration:none;}
-.contract-dl-btn:hover{background:rgba(184,149,106,.15);border-color:var(--gold2);}
+.contract-dl-btn:hover{background:rgba(184,149,106,.15);border-color:var(--gold2);}.contract-dl-wrap{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center;margin-top:1.3rem;}
 .contract-dl-btn svg{flex-shrink:0;}
 .commercial-terms{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:1.1rem;}
 .commercial-term{background:rgba(11,14,20,.4);border:1px solid rgba(184,149,106,.1);border-radius:8px;padding:.85rem 1rem;}
@@ -538,10 +538,16 @@ footer a:hover{color:var(--accent2);}
       <h3 data-i18n="com_h"></h3>
       <p data-i18n="com_p1"></p>
       <div class="commercial-terms" id="com-terms"></div>
-      <a class="contract-dl-btn" id="contract-dl-btn" href="#" onclick="downloadContract(event)">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v13M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
-        <span data-i18n="com_dl"></span>
-      </a>
+      <div class="contract-dl-wrap">
+        <a class="contract-dl-btn" href="NaviBlue_Licence_Commerciale_FR.pdf" download>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v13M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+          Aperçu licence (FR)
+        </a>
+        <a class="contract-dl-btn" href="NaviBlue_Commercial_License_EN.pdf" download>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v13M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+          License preview (EN)
+        </a>
+      </div>
     </div>
   </div>
   <p class="pr-note" data-i18n="pr_note"></p>
