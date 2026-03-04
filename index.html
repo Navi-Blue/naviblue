@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Navi.Blue — Bientôt</title>
+<title>Navi.Blue · Bientôt</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -339,6 +339,9 @@ async function checkPwd(){
   const val=document.getElementById('pwd-input').value;
   const h=await sha256(val);
   if(h===HASH){
+    // Poser le cookie de session hashé (valable 1 jour)
+    const expires=new Date(Date.now()+86400000).toUTCString();
+    document.cookie='nb_access=1d7567663048660b937ee63a6506c5e61762dc6957b600e6509631cade013949;expires='+expires+';path=/;SameSite=Strict';
     window.location.href='naviblue-adopts.html';
   } else {
     const err=document.getElementById('modal-error');
