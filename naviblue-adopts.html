@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://ytmtgbjhgojtzqbposms.supabase.co; img-src 'self' data: blob: https:;">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navi.Blue — Adopts</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0e14;--surface:#131a27;--surface2:#1a2335;
+  --accent:#4a9eca;--accent2:#7ec8e3;--accent3:#2d6a8a;
+  --text:#d8e8f0;--text-muted:#7a9db5;--text-dim:#3d5a70;
+  --gold:#b8956a;--gold2:#d4b896;--gold3:#f0d5a8;
+  --green:#6ecb8a;--red:#cb8888;--purple:#a47ec8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 60% 40% at 15% 8%,rgba(74,158,202,.07) 0%,transparent 55%),
+             radial-gradient(ellipse 50% 60% at 85% 85%,rgba(45,106,138,.08) 0%,transparent 55%),
+             radial-gradient(ellipse 30% 30% at 70% 20%,rgba(184,149,106,.04) 0%,transparent 50%);}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.particle{position:absolute;border-radius:50%;opacity:0;animation:float-up linear infinite;}
+@keyframes float-up{0%{opacity:0;transform:translateY(0) translateX(0)}10%{opacity:.5}90%{opacity:.2}100%{opacity:0;transform:translateY(-100vh) translateX(var(--drift))}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(11,14,20,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(74,158,202,.1);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:300;letter-spacing:.05em;color:var(--accent2);text-decoration:none;}
+.nav-logo .dot{color:var(--gold);}
+.nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center;}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:.73rem;letter-spacing:.15em;text-transform:uppercase;transition:color .3s;}
+.nav-links a:hover{color:var(--accent2);}
+.lang-toggle{display:flex;border:1px solid var(--accent3);border-radius:20px;overflow:hidden;}
+.lang-btn{background:none;border:none;cursor:pointer;padding:.3rem .85rem;font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.12em;color:var(--text-muted);transition:all .3s;}
+.lang-btn.active{background:var(--accent3);color:var(--accent2);}
+
+/* ── SHARED ── */
+section{position:relative;z-index:1;}
+.section-header{text-align:center;margin-bottom:3.5rem;}
+.section-header .eyebrow{font-size:.67rem;letter-spacing:.4em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.9rem;}
+.section-header h2{font-family:'Cormorant Garamond',serif;font-size:2.7rem;font-weight:300;color:var(--text);}
+.section-header h2 em{font-style:italic;color:var(--accent2);}
+.section-header p{margin-top:1rem;font-size:.86rem;color:var(--text-muted);max-width:560px;margin-left:auto;margin-right:auto;line-height:1.9;}
+.section-divider{width:100%;max-width:160px;margin:0 auto;height:1px;background:linear-gradient(90deg,transparent,var(--accent3),transparent);opacity:.35;}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;}
+.hero-eyebrow{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;opacity:0;animation:fadein 1s .3s forwards;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,8vw,7rem);font-weight:300;line-height:1;opacity:0;animation:fadein 1s .6s forwards;}
+.hero-title .dot{color:var(--accent);}
+.hero-title em{font-style:italic;color:var(--accent2);}
+.hero-sub{margin-top:1.5rem;font-size:.87rem;color:var(--text-muted);max-width:400px;line-height:2;opacity:0;animation:fadein 1s .9s forwards;}
+.hero-line{width:1px;height:70px;background:linear-gradient(to bottom,var(--accent),transparent);margin:3rem auto 0;opacity:0;animation:fadein 1s 1.2s forwards;}
+@keyframes fadein{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ── ABOUT ── */
+#about{padding:7rem 2rem;max-width:920px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-text h2{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;line-height:1.1;margin-bottom:1.5rem;}
+.about-text h2 em{font-style:italic;color:var(--accent2);}
+.about-text p{color:var(--text-muted);line-height:1.95;font-size:.86rem;margin-bottom:1rem;}
+.about-deco{position:relative;height:280px;}
+.deco-ring{position:absolute;border-radius:50%;border:1px solid;animation:spin linear infinite;}
+.deco-ring:nth-child(1){width:190px;height:190px;top:50%;left:50%;transform:translate(-50%,-50%);border-color:rgba(74,158,202,.2);animation-duration:22s;}
+.deco-ring:nth-child(2){width:130px;height:130px;top:50%;left:50%;transform:translate(-50%,-50%);border-color:rgba(126,200,227,.15);animation-duration:13s;animation-direction:reverse;}
+.deco-ring:nth-child(3){width:260px;height:260px;top:50%;left:50%;transform:translate(-50%,-50%);border-color:rgba(45,106,138,.1);animation-duration:35s;}
+.deco-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:radial-gradient(circle,var(--accent3),var(--bg));border-radius:50%;box-shadow:0 0 28px rgba(74,158,202,.3),0 0 55px rgba(74,158,202,.1);}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* ── HORAIRES ── */
+.schedule-box{max-width:800px;margin:0 auto 5rem;padding:0 2rem;}
+.schedule-inner{background:var(--surface);border:1px solid rgba(74,158,202,.12);border-radius:14px;padding:2rem 2.5rem;position:relative;overflow:hidden;}
+.schedule-inner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent3),transparent);}
+.schedule-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--accent2);margin-bottom:1.4rem;display:flex;align-items:center;gap:.8rem;}
+.schedule-title-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(74,158,202,.2),transparent);}
+.schedule-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.schedule-slot{background:var(--surface2);border-radius:10px;padding:1rem 1.2rem;border:1px solid rgba(74,158,202,.07);position:relative;overflow:hidden;}
+.schedule-slot::before{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:linear-gradient(to bottom,var(--accent3),transparent);}
+.slot-icon{width:22px;height:22px;margin-bottom:.55rem;color:var(--accent3);opacity:.7;}
+.slot-label{font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-dim);margin-bottom:.35rem;}
+.slot-time{font-size:.82rem;color:var(--text-muted);line-height:1.75;}
+.slot-time strong{color:var(--accent2);font-weight:400;}
+.schedule-note{margin-top:1rem;font-size:.77rem;color:var(--text-dim);font-style:italic;line-height:1.7;padding-left:.2rem;}
+
+/* ── GALLERY PAGE ── */
+#gallery-page{display:none;position:fixed;inset:0;z-index:90;background:var(--bg);overflow-y:auto;padding-top:80px;}
+#gallery-page.open{display:block;}
+.gallery-page-inner{max-width:1100px;margin:0 auto;padding:3rem 2rem 6rem;}
+.gallery-page-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2.5rem;}
+.gallery-page-header h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;}
+.gallery-page-header h2 em{font-style:italic;color:var(--accent2);}
+.gallery-close-btn{background:none;border:1px solid var(--accent3);color:var(--accent2);cursor:pointer;padding:.4rem 1.2rem;border-radius:20px;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.12em;transition:all .3s;}
+.gallery-close-btn:hover{background:var(--accent3);}
+.gallery-filters{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem;}
+.filter-btn{background:none;border:1px solid var(--text-dim);color:var(--text-muted);cursor:pointer;padding:.3rem .9rem;border-radius:20px;font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.1em;transition:all .3s;}
+.filter-btn:hover,.filter-btn.active{border-color:var(--accent);color:var(--accent2);}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.2rem;}
+
+/* ── ADOPT CARD (shared) ── */
+.adopt-card{background:var(--surface);border:1px solid rgba(74,158,202,.08);border-radius:10px;overflow:hidden;transition:all .4s;cursor:pointer;position:relative;}
+.adopt-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(74,158,202,.05),transparent);opacity:0;transition:opacity .4s;z-index:1;}
+.adopt-card:not(.taken):not(.auction-card):hover{border-color:rgba(74,158,202,.3);transform:translateY(-4px);box-shadow:0 20px 55px rgba(0,0,0,.4),0 0 28px rgba(74,158,202,.08);}
+.adopt-card:not(.taken):not(.auction-card):hover::before{opacity:1;}
+.adopt-card.taken{opacity:.42;cursor:default;filter:grayscale(.55);}
+.adopt-card.auction-card{border-color:rgba(184,149,106,.2);}
+.adopt-card.auction-card:hover{border-color:rgba(184,149,106,.5);transform:translateY(-4px);box-shadow:0 20px 55px rgba(0,0,0,.4),0 0 28px rgba(184,149,106,.08);}
+.card-img{width:100%;aspect-ratio:1;background:var(--surface2);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.adopt-card.taken .card-img::after{content:attr(data-label);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(11,14,20,.55);font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--text-muted);letter-spacing:.08em;}
+.card-img img{width:100%;height:100%;object-fit:cover;}
+.card-img-placeholder{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-style:italic;color:var(--text-dim);user-select:none;}
+.card-body{padding:1rem 1.2rem;}
+.card-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--text);}
+.card-badges{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.4rem;}
+.badge{font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:.12rem .5rem;border-radius:20px;border:1px solid;}
+.badge-fauna{border-color:rgba(74,158,202,.35);color:var(--accent2);background:rgba(74,158,202,.08);}
+.badge-claim{border-color:rgba(164,126,200,.4);color:var(--purple);background:rgba(164,126,200,.08);}
+.badge-auction{border-color:rgba(184,149,106,.4);color:var(--gold2);background:rgba(184,149,106,.08);}
+.card-status{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;display:block;margin-top:.35rem;}
+.s-available{color:var(--green);}
+.s-sold{color:var(--text-dim);}
+.s-claim{color:var(--purple);}
+.s-auction{color:var(--gold2);}
+.card-price{font-size:.83rem;color:var(--accent);margin-top:.3rem;}
+.card-auction-price{font-size:.83rem;color:var(--gold2);margin-top:.3rem;}
+
+/* ── CAROUSEL (mini, hero adopt) ── */
+#gallery{padding:7rem 2rem 3rem;max-width:1100px;margin:0 auto;}
+.carousel-wrap{position:relative;}
+.carousel-track-outer{overflow:hidden;}
+.carousel-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);}
+.adopt-slide{flex-shrink:0;padding-right:1.4rem;}
+.carousel-nav{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:1.8rem;}
+.carousel-btn{background:none;border:1px solid var(--accent3);color:var(--accent2);cursor:pointer;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:1rem;flex-shrink:0;}
+.carousel-btn:hover:not(:disabled){background:var(--accent3);}
+.carousel-btn:disabled{opacity:.25;cursor:default;}
+.carousel-dots{display:flex;gap:.5rem;}
+.carousel-dot{width:6px;height:6px;border-radius:50%;background:var(--text-dim);border:none;cursor:pointer;padding:0;transition:all .3s;}
+.carousel-dot.active{background:var(--accent2);width:18px;border-radius:3px;}
+.view-all-btn{display:block;margin:2rem auto 0;background:none;border:1px solid var(--accent3);color:var(--accent2);cursor:pointer;padding:.6rem 2rem;border-radius:30px;font-family:'Jost',sans-serif;font-size:.76rem;letter-spacing:.15em;text-transform:uppercase;transition:all .3s;}
+.view-all-btn:hover{background:var(--accent3);}
+
+/* ── ADOPT POPUP ── */
+.popup-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(7,10,17,.92);backdrop-filter:blur(14px);align-items:center;justify-content:center;padding:1.5rem;}
+.popup-overlay.open{display:flex;}
+.popup-box{background:var(--surface);border:1px solid rgba(74,158,202,.15);border-radius:16px;width:100%;max-width:820px;max-height:90vh;overflow-y:auto;position:relative;display:grid;grid-template-columns:1fr 1fr;}
+.popup-close{position:absolute;top:1rem;right:1.2rem;background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:1.2rem;z-index:10;}
+.popup-close:hover{color:var(--text);}
+.popup-gallery{border-right:1px solid rgba(74,158,202,.08);}
+.popup-main-img{width:100%;aspect-ratio:1;background:var(--surface2);display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:16px 0 0 0;}
+.popup-main-img img{width:100%;height:100%;object-fit:cover;}
+.popup-main-placeholder{font-family:'Cormorant Garamond',serif;font-size:4rem;font-style:italic;color:var(--text-dim);}
+.popup-thumbs{display:flex;gap:.5rem;padding:.8rem;flex-wrap:wrap;background:var(--surface2);border-radius:0 0 0 16px;}
+.popup-thumb{width:50px;height:50px;border-radius:6px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .2s;flex-shrink:0;background:var(--surface);display:flex;align-items:center;justify-content:center;}
+.popup-thumb.active{border-color:var(--accent);}
+.popup-thumb img{width:100%;height:100%;object-fit:cover;}
+.popup-thumb-ph{font-size:.85rem;color:var(--text-dim);font-family:'Cormorant Garamond',serif;}
+.popup-info{padding:1.8rem;display:flex;flex-direction:column;gap:1.1rem;overflow-y:auto;}
+.popup-name{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;line-height:1.1;}
+.popup-status-price{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+.popup-price{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--accent2);}
+.popup-divider{height:1px;background:rgba(74,158,202,.08);}
+.popup-section-label{font-size:.63rem;letter-spacing:.25em;text-transform:uppercase;color:var(--text-dim);margin-bottom:.45rem;}
+.popup-desc{font-size:.83rem;color:var(--text-muted);line-height:1.9;}
+.popup-outfits{display:flex;flex-direction:column;gap:.3rem;}
+.popup-outfit-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.74rem;color:var(--text-muted);padding:.22rem .7rem;background:var(--surface2);border-radius:20px;border:1px solid rgba(74,158,202,.08);}
+.popup-outfit-tag::before{content:'·';color:var(--accent3);}
+.popup-fauna-row{display:flex;flex-wrap:wrap;gap:.4rem;}
+.popup-taken-banner{background:rgba(203,110,110,.08);border:1px solid rgba(203,110,110,.2);border-radius:8px;padding:.65rem 1rem;font-size:.77rem;color:var(--red);font-style:italic;}
+
+/* Claim & Auction in popup */
+.popup-action-area{border-top:1px solid rgba(74,158,202,.08);padding-top:1rem;display:flex;flex-direction:column;gap:.7rem;}
+.popup-action-btn{border:none;border-radius:8px;padding:.65rem 1.2rem;font-family:'Jost',sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s;width:100%;}
+.btn-claim{background:rgba(164,126,200,.15);border:1px solid rgba(164,126,200,.4);color:var(--purple);}
+.btn-claim:hover{background:rgba(164,126,200,.25);}
+.btn-auction{background:rgba(184,149,106,.1);border:1px solid rgba(184,149,106,.35);color:var(--gold2);}
+.btn-auction:hover{background:rgba(184,149,106,.2);}
+.btn-autobuy{background:rgba(74,158,202,.1);border:1px solid rgba(74,158,202,.3);color:var(--accent2);}
+.btn-autobuy:hover{background:rgba(74,158,202,.2);}
+.auction-info-box{background:var(--surface2);border-radius:8px;padding:.8rem 1rem;font-size:.79rem;color:var(--text-muted);line-height:1.7;}
+.auction-info-box strong{color:var(--gold2);}
+.auction-current{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold3);}
+.claim-count{font-size:.75rem;color:var(--purple);margin-top:.2rem;}
+
+/* ── FORM MODALS ── */
+.form-modal{display:none;position:fixed;inset:0;z-index:600;background:rgba(7,10,17,.92);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:1.5rem;}
+.form-modal.open{display:flex;}
+.form-modal-box{background:var(--surface);border:1px solid rgba(74,158,202,.15);border-radius:14px;padding:2.2rem;width:100%;max-width:420px;position:relative;}
+.form-modal-box h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;margin-bottom:.3rem;}
+.form-modal-box p{font-size:.81rem;color:var(--text-muted);margin-bottom:1.3rem;line-height:1.7;}
+.fm-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:1.1rem;}
+.fm-close:hover{color:var(--text);}
+.fm-field{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.9rem;}
+.fm-field label{font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);}
+.fm-field input,.fm-field select{background:var(--surface2);border:1px solid rgba(74,158,202,.12);border-radius:7px;padding:.6rem .9rem;color:var(--text);font-family:'Jost',sans-serif;font-size:.86rem;outline:none;transition:border-color .3s;}
+.fm-field input:focus,.fm-field select:focus{border-color:var(--accent3);}
+.fm-field select option{background:var(--surface2);}
+.fm-submit{width:100%;background:var(--accent3);border:none;border-radius:8px;padding:.75rem;color:var(--accent2);font-family:'Jost',sans-serif;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .3s;margin-top:.3rem;}
+.fm-submit:hover{background:var(--accent);}
+.fm-note{font-size:.73rem;color:var(--text-dim);margin-top:.9rem;line-height:1.65;font-style:italic;}
+
+/* ── PRICING ── */
+#pricing{padding:7rem 2rem;max-width:1100px;margin:0 auto;}
+.pricing-intro{text-align:center;max-width:600px;margin:0 auto 4rem;font-size:.86rem;color:var(--text-muted);line-height:1.9;}
+.pricing-group{margin-bottom:4rem;}
+.pricing-group-eyebrow{font-size:.67rem;letter-spacing:.4em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.6rem;}
+.pricing-group-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-style:italic;color:var(--accent2);margin-bottom:1.5rem;display:block;}
+.pr-carousel-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);}
+.pr-slide{flex-shrink:0;padding-right:1.2rem;}
+/* Pricing grid (replaces carousel) */
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
+.pricing-card{background:var(--surface);border:1px solid rgba(74,158,202,.12);border-radius:12px;padding:1.7rem;position:relative;overflow:hidden;height:100%;display:flex;flex-direction:column;transition:transform .3s;}
+.pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent3),transparent);}
+.pricing-card:hover{transform:translateY(-3px);}
+/* Gold tiers — warm dark gold, no green */
+.pricing-card.tier-mid{border-color:rgba(184,149,106,.2);}
+.pricing-card.tier-mid::before{background:linear-gradient(90deg,transparent,rgba(184,149,106,.5),transparent);}
+.pricing-card.tier-high{background:linear-gradient(160deg,#131209,#1c1710);border-color:rgba(184,149,106,.35);}
+.pricing-card.tier-high::before{background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.pricing-card.tier-max{background:linear-gradient(160deg,#1a1208,#201810);border-color:rgba(184,149,106,.5);box-shadow:0 0 30px rgba(184,149,106,.07);}
+.pricing-card.tier-max::before{background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+/* Pure gold card (Sa'nok Files) */
+.pricing-card.gold-only{background:linear-gradient(160deg,#1a1208,#201810);border-color:rgba(184,149,106,.45);}
+.pricing-card.gold-only::before{background:linear-gradient(90deg,transparent,var(--gold2),transparent);}
+.pricing-card.gold-only .pc-navi{color:var(--gold);}
+.pricing-card.gold-only .pc-includes li::before{color:var(--gold);}
+.pricing-card.gold-only .pc-price{color:var(--gold3);}
+.pc-navi{font-size:.61rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent3);margin-bottom:.35rem;}
+.tier-mid .pc-navi{color:rgba(184,149,106,.6);}
+.tier-high .pc-navi{color:var(--gold);}
+.tier-max .pc-navi{color:var(--gold2);}
+.pc-title{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:600;color:var(--text);margin-bottom:.85rem;}
+.pc-includes{list-style:none;flex:1;margin-bottom:1.2rem;}
+.pc-includes li{font-size:.78rem;color:var(--text-muted);line-height:1.8;padding-left:1rem;position:relative;}
+.pc-includes li::before{content:'·';position:absolute;left:0;color:var(--accent3);}
+.tier-mid .pc-includes li::before{color:rgba(184,149,106,.5);}
+.tier-high .pc-includes li::before{color:var(--gold);}
+.tier-max .pc-includes li::before{color:var(--gold2);}
+.pc-price{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--accent2);margin-top:auto;}
+.tier-mid .pc-price{color:var(--gold2);}
+.tier-high .pc-price{color:var(--gold2);}
+.tier-max .pc-price{color:var(--gold3);}
+/* Info button on card */
+.pc-info-btn{position:absolute;top:.9rem;right:.9rem;width:18px;height:18px;border-radius:50%;border:1px solid var(--accent3);background:none;color:var(--accent3);font-size:.65rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;font-family:'Jost',sans-serif;line-height:1;}
+.pc-info-btn:hover{background:var(--accent3);color:var(--bg);}
+/* Outfit info popup */
+.outfit-popup{display:none;position:fixed;inset:0;z-index:600;background:rgba(7,10,17,.85);backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:1.5rem;}
+.outfit-popup.open{display:flex;}
+.outfit-popup-box{background:var(--surface);border:1px solid rgba(74,158,202,.15);border-radius:14px;padding:2rem 2.2rem;width:100%;max-width:380px;position:relative;}
+.outfit-popup-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent3),transparent);border-radius:14px 14px 0 0;}
+.outfit-popup-box h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;color:var(--text);margin-bottom:1.2rem;}
+.outfit-popup-box ul{list-style:none;}
+.outfit-popup-box li{font-size:.82rem;color:var(--text-muted);line-height:1.85;padding-left:1rem;position:relative;}
+.outfit-popup-box li::before{content:'·';position:absolute;left:0;color:var(--accent3);}
+.outfit-popup-close{position:absolute;top:.9rem;right:1rem;background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:1.1rem;}
+.outfit-popup-close:hover{color:var(--text);}
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.outfit-detail{display:none;}/* hidden — replaced by popup */
+.commercial-box{background:var(--surface);border:1px solid rgba(184,149,106,.22);border-radius:12px;padding:2.3rem;position:relative;overflow:hidden;}
+.commercial-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.commercial-box h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--gold2);margin-bottom:.4rem;}
+.commercial-box p{font-size:.82rem;color:var(--text-muted);line-height:1.9;margin-bottom:.9rem;}
+.commercial-price-tag{font-family:'Cormorant Garamond',serif;font-size:1.75rem;color:var(--gold3);display:inline-block;margin-bottom:.9rem;}
+.contract-dl-btn{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.3rem;padding:.65rem 1.4rem;border:1px solid rgba(184,149,106,.4);border-radius:30px;color:var(--gold2);font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;background:rgba(184,149,106,.07);cursor:pointer;transition:all .3s;text-decoration:none;}
+.contract-dl-btn:hover{background:rgba(184,149,106,.15);border-color:var(--gold2);}
+.contract-dl-btn svg{flex-shrink:0;}
+.commercial-terms{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:1.1rem;}
+.commercial-term{background:rgba(11,14,20,.4);border:1px solid rgba(184,149,106,.1);border-radius:8px;padding:.85rem 1rem;}
+.ct-label{font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;}
+.ct-text{font-size:.78rem;color:var(--text-muted);line-height:1.7;}
+.pr-note{text-align:center;font-size:.75rem;color:var(--text-dim);margin-top:2rem;font-style:italic;}
+
+/* ── TOS ── */
+#tos{padding:7rem 2rem;max-width:800px;margin:0 auto;}
+.tos-container{background:var(--surface);border:1px solid rgba(74,158,202,.1);border-radius:12px;padding:3.5rem;position:relative;}
+.tos-deco{position:absolute;top:2rem;right:2.5rem;font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--text-dim);opacity:.2;user-select:none;pointer-events:none;}
+.tos-rule{display:flex;gap:1.5rem;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(74,158,202,.06);}
+.tos-rule:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.tos-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;color:var(--accent3);min-width:2.5rem;line-height:1;padding-top:.1rem;}
+.tos-content h3{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-weight:600;color:var(--text);margin-bottom:.4rem;}
+.tos-content p{font-size:.84rem;color:var(--text-muted);line-height:1.9;}
+.tag{display:inline-block;font-size:.59rem;letter-spacing:.15em;text-transform:uppercase;padding:.13rem .58rem;border-radius:20px;margin-right:.4rem;margin-bottom:.5rem;border:1px solid;}
+.tag-ok{background:rgba(110,203,138,.1);color:var(--green);border-color:rgba(110,203,138,.3);}
+.tag-no{background:rgba(203,110,110,.1);color:var(--red);border-color:rgba(203,110,110,.3);}
+.tag-ask{background:rgba(184,149,106,.1);color:var(--gold2);border-color:rgba(184,149,106,.3);}
+.tag-inf{background:rgba(74,158,202,.1);color:var(--accent2);border-color:rgba(74,158,202,.3);}
+
+/* ── FAQ ── */
+#faq{padding:7rem 2rem;max-width:750px;margin:0 auto;}
+.faq-item{border-bottom:1px solid rgba(74,158,202,.08);}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:1.35rem 0;text-align:left;gap:1rem;font-family:'Cormorant Garamond',serif;font-size:1.06rem;color:var(--text);transition:color .3s;}
+.faq-q:hover{color:var(--accent2);}
+.faq-icon{width:20px;height:20px;border:1px solid var(--accent3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent);font-size:.85rem;transition:all .3s;}
+.faq-item.open .faq-icon{background:var(--accent3);transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.faq-item.open .faq-a{max-height:400px;}
+.faq-a p{font-size:.84rem;color:var(--text-muted);line-height:1.9;padding-bottom:1.35rem;}
+
+/* ── SOCIAL ── */
+#social{padding:7rem 2rem 10rem;text-align:center;}
+.social-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:3rem;}
+.social-link{display:flex;align-items:center;gap:.6rem;padding:.72rem 1.5rem;border:1px solid rgba(74,158,202,.15);border-radius:50px;text-decoration:none;color:var(--text-muted);font-size:.77rem;letter-spacing:.1em;transition:all .3s;background:var(--surface);}
+.social-link:hover{border-color:var(--accent);color:var(--accent2);background:rgba(74,158,202,.05);transform:translateY(-2px);}
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:1;border-top:1px solid rgba(74,158,202,.07);padding:1.8rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:.71rem;color:var(--text-dim);letter-spacing:.08em;}
+footer .logo-sm{font-family:'Cormorant Garamond',serif;font-size:.93rem;}
+footer a{color:var(--text-dim);text-decoration:none;transition:color .3s;}
+footer a:hover{color:var(--accent2);}
+
+/* ── ADMIN LOCK ── */
+.admin-lock-btn{position:fixed;bottom:2rem;right:2rem;z-index:50;background:var(--surface);border:1px solid rgba(74,158,202,.15);color:var(--text-dim);cursor:pointer;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .4s;box-shadow:0 4px 20px rgba(0,0,0,.3);font-size:1rem;}
+.admin-lock-btn:hover{border-color:var(--accent3);color:var(--accent2);}
+
+/* ── LOGIN MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:700;background:rgba(7,10,17,.93);backdrop-filter:blur(12px);align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:var(--surface);border:1px solid rgba(74,158,202,.15);border-radius:14px;padding:2.5rem;width:100%;max-width:360px;position:relative;}
+.modal-box h3{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:300;margin-bottom:.35rem;color:var(--text);}
+.modal-box p{font-size:.81rem;color:var(--text-muted);margin-bottom:1.4rem;}
+.modal-step-indicator{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent3);margin-bottom:1rem;}
+.modal-input{width:100%;background:var(--surface2);border:1px solid rgba(74,158,202,.15);border-radius:8px;padding:.72rem 1rem;color:var(--text);font-family:'Jost',sans-serif;font-size:.9rem;outline:none;transition:border-color .3s;margin-bottom:.8rem;}
+.modal-input:focus{border-color:var(--accent3);}
+.modal-error{font-size:.77rem;color:var(--red);margin-bottom:.8rem;display:none;}
+.modal-btn{width:100%;background:var(--accent3);border:none;border-radius:8px;padding:.78rem;color:var(--accent2);font-family:'Jost',sans-serif;font-size:.81rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s;}
+.modal-btn:hover{background:var(--accent);}
+.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:1.1rem;}
+.modal-close:hover{color:var(--text);}
+
+/* ── ADMIN PANEL ── */
+#admin-panel{display:none;position:fixed;inset:0;z-index:650;background:rgba(7,10,17,.97);backdrop-filter:blur(14px);overflow-y:auto;}
+#admin-panel.open{display:block;}
+.admin-inner{max-width:900px;margin:0 auto;padding:4rem 2rem;}
+.admin-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;}
+.admin-header h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--text);}
+.admin-close-btn{background:none;border:1px solid var(--accent3);color:var(--accent2);cursor:pointer;padding:.4rem 1.2rem;border-radius:20px;font-family:'Jost',sans-serif;font-size:.71rem;letter-spacing:.12em;transition:all .3s;}
+.admin-close-btn:hover{background:var(--accent3);}
+.admin-tabs{display:flex;gap:.4rem;margin-bottom:2rem;border-bottom:1px solid rgba(74,158,202,.08);flex-wrap:wrap;}
+.admin-tab{background:none;border:none;cursor:pointer;padding:.7rem 1.1rem;font-family:'Jost',sans-serif;font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .3s;}
+.admin-tab.active{color:var(--accent2);border-bottom-color:var(--accent);}
+.admin-adopt-list{display:flex;flex-direction:column;gap:.9rem;}
+.admin-row{background:var(--surface);border:1px solid rgba(74,158,202,.08);border-radius:10px;padding:1rem 1.3rem;}
+.admin-row-top{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+.admin-row-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--text);flex:1;}
+.admin-toggle{background:none;border:1px solid;cursor:pointer;padding:.22rem .85rem;border-radius:20px;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;transition:all .3s;font-family:'Jost',sans-serif;}
+.admin-toggle.available{border-color:rgba(110,203,138,.4);color:var(--green);}
+.admin-toggle.available:hover{background:rgba(110,203,138,.1);}
+.admin-toggle.taken{border-color:rgba(203,110,110,.4);color:var(--red);}
+.admin-toggle.taken:hover{background:rgba(203,110,110,.1);}
+.admin-row-section{margin-top:.7rem;padding-top:.7rem;border-top:1px solid rgba(74,158,202,.06);}
+.admin-row-section label{font-size:.61rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);display:block;margin-bottom:.35rem;}
+.owner-entries,.claim-entries,.bid-entries{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.45rem;}
+.entry-row{display:flex;align-items:center;gap:.6rem;font-size:.77rem;color:var(--text-muted);}
+.entry-row .er-main{color:var(--text);flex:1;}
+.entry-row .er-sub{color:var(--text-dim);font-size:.71rem;}
+.entry-row .er-del{background:none;border:none;cursor:pointer;color:var(--text-dim);font-size:.9rem;transition:color .3s;}
+.entry-row .er-del:hover{color:var(--red);}
+.add-row{display:flex;gap:.5rem;margin-top:.35rem;flex-wrap:wrap;}
+.add-input{flex:1;min-width:120px;background:var(--surface2);border:1px solid rgba(74,158,202,.12);border-radius:6px;padding:.38rem .65rem;color:var(--text);font-family:'Jost',sans-serif;font-size:.77rem;outline:none;transition:border-color .3s;}
+.add-input:focus{border-color:var(--accent3);}
+.add-btn{background:var(--accent3);border:none;border-radius:6px;padding:.38rem .85rem;color:var(--accent2);cursor:pointer;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;font-family:'Jost',sans-serif;transition:background .3s;}
+.add-btn:hover{background:var(--accent);}
+.add-adopt-form{background:var(--surface);border:1px solid rgba(74,158,202,.1);border-radius:10px;padding:1.5rem;margin-bottom:1.5rem;}
+.add-adopt-form h3{font-family:'Cormorant Garamond',serif;font-size:1.12rem;color:var(--text);margin-bottom:1rem;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:.65rem;}
+.form-field{display:flex;flex-direction:column;gap:.28rem;}
+.form-field label{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);}
+.form-field input,.form-field textarea,.form-field select{background:var(--surface2);border:1px solid rgba(74,158,202,.12);border-radius:6px;padding:.48rem .68rem;color:var(--text);font-family:'Jost',sans-serif;font-size:.81rem;outline:none;transition:border-color .3s;resize:vertical;}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:var(--accent3);}
+.fauna-checkboxes{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.25rem;}
+.fauna-cb{display:flex;align-items:center;gap:.28rem;font-size:.74rem;color:var(--text-muted);cursor:pointer;}
+.fauna-cb input{accent-color:var(--accent);}
+.add-adopt-btn{background:var(--accent3);border:none;border-radius:8px;padding:.58rem 1.3rem;color:var(--accent2);font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .3s;margin-top:.45rem;}
+.add-adopt-btn:hover{background:var(--accent);}
+.form-note{font-size:.71rem;color:var(--text-dim);margin-top:.35rem;font-style:italic;}
+.sales-table{width:100%;border-collapse:collapse;}
+.sales-table th{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);padding:.58rem 1rem;text-align:left;border-bottom:1px solid rgba(74,158,202,.08);}
+.sales-table td{padding:.72rem 1rem;font-size:.8rem;color:var(--text-muted);border-bottom:1px solid rgba(74,158,202,.04);}
+.sales-table td:first-child{font-family:'Cormorant Garamond',serif;font-size:.93rem;color:var(--text);}
+.sales-empty{text-align:center;padding:3rem;color:var(--text-dim);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.05rem;}
+.admin-auction-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem;}
+.admin-auction-btn{background:none;border:1px solid;cursor:pointer;padding:.22rem .8rem;border-radius:20px;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;font-family:'Jost',sans-serif;transition:all .3s;}
+.btn-start-auction{border-color:rgba(184,149,106,.4);color:var(--gold2);}
+.btn-start-auction:hover{background:rgba(184,149,106,.1);}
+.btn-end-auction{border-color:rgba(203,110,110,.4);color:var(--red);}
+.btn-end-auction:hover{background:rgba(203,110,110,.1);}
+.btn-clear-claims{border-color:rgba(164,126,200,.4);color:var(--purple);}
+.btn-clear-claims:hover{background:rgba(164,126,200,.1);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .popup-box{grid-template-columns:1fr;}
+  .popup-gallery{border-right:none;border-bottom:1px solid rgba(74,158,202,.08);}
+  .popup-main-img{border-radius:16px 16px 0 0;}
+  .popup-thumbs{border-radius:0;}
+  .options-grid,.commercial-terms,.form-grid,.pricing-grid{grid-template-columns:1fr;}
+  .schedule-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  nav{padding:1rem 1.4rem;}
+  .nav-links{display:none;}
+  #about{grid-template-columns:1fr;gap:2.5rem;}
+  .about-deco{height:200px;}
+  footer{flex-direction:column;gap:.8rem;text-align:center;}
+  .tos-container{padding:2rem 1.5rem;}
+  .schedule-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="particles" id="particles"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Navi<span class="dot">.</span>Blue</a>
+  <ul class="nav-links">
+    <li><a href="#about"   data-i18n="nav_about"   onclick="closeGalleryPage()"></a></li>
+    <li><a href="#gallery" data-i18n="nav_gallery"  onclick="closeGalleryPage()"></a></li>
+    <li><a href="#pricing" data-i18n="nav_pricing"  onclick="closeGalleryPage()"></a></li>
+    <li><a href="#tos"                              onclick="closeGalleryPage()">TOS</a></li>
+    <li><a href="#faq"                              onclick="closeGalleryPage()">FAQ</a></li>
+    <li><a href="#social"  data-i18n="nav_social"   onclick="closeGalleryPage()"></a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn"        onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-eyebrow" data-i18n="hero_eye"></p>
+  <h1 class="hero-title">Navi<span class="dot">.</span><em>Blue</em></h1>
+  <p class="hero-sub" data-i18n="hero_sub"></p>
+  <div class="hero-line"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-text">
+    <h2><span data-i18n="about_t1"></span><br><em data-i18n="about_t2"></em></h2>
+    <p data-i18n="about_p1"></p>
+    <p data-i18n="about_p2"></p>
+    <p data-i18n="about_p3"></p>
+  </div>
+  <div class="about-deco">
+    <div class="deco-ring"></div><div class="deco-ring"></div><div class="deco-ring"></div>
+    <div class="deco-center"></div>
+  </div>
+</section>
+
+<!-- HORAIRES -->
+<div class="schedule-box" id="schedule-box">
+  <div class="schedule-inner">
+    <p class="schedule-title">
+      <span data-i18n="sch_title"></span>
+      <span class="schedule-title-line"></span>
+    </p>
+    <div class="schedule-grid">
+      <div class="schedule-slot">
+        <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+        <div class="slot-label" data-i18n="sch_week_label"></div>
+        <div class="slot-time" data-i18n="sch_week"></div>
+      </div>
+      <div class="schedule-slot">
+        <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div class="slot-label" data-i18n="sch_eve_label"></div>
+        <div class="slot-time" data-i18n="sch_eve"></div>
+      </div>
+      <div class="schedule-slot">
+        <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9"/><path d="M12 3v4M12 21v-4M3 12H7M21 12h-4"/></svg>
+        <div class="slot-label" data-i18n="sch_wknd_label"></div>
+        <div class="slot-time" data-i18n="sch_wknd"></div>
+      </div>
+    </div>
+    <p class="schedule-note" data-i18n="sch_note"></p>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- GALLERY (carousel + view all) -->
+<section id="gallery">
+  <div class="section-header">
+    <span class="eyebrow" data-i18n="gal_eye"></span>
+    <h2><span data-i18n="gal_t1"></span> <em data-i18n="gal_t2"></em></h2>
+    <p data-i18n="gal_desc"></p>
+  </div>
+  <div class="carousel-wrap">
+    <div class="carousel-track-outer">
+      <div class="carousel-track" id="adopt-track"></div>
+    </div>
+    <div class="carousel-nav">
+      <button class="carousel-btn" id="adopt-prev" onclick="adoptMove(-1)">&#8592;</button>
+      <div class="carousel-dots" id="adopt-dots"></div>
+      <button class="carousel-btn" id="adopt-next" onclick="adoptMove(1)">&#8594;</button>
+    </div>
+  </div>
+  <button class="view-all-btn" onclick="openGalleryPage()" data-i18n="gal_viewall"></button>
+</section>
+
+<!-- GALLERY FULL PAGE -->
+<div id="gallery-page">
+  <div class="gallery-page-inner">
+    <div class="gallery-page-header">
+      <h2><span data-i18n="gal_t1"></span> <em data-i18n="gal_t2"></em></h2>
+      <button class="gallery-close-btn" onclick="closeGalleryPage()" data-i18n="gal_close"></button>
+    </div>
+    <div class="gallery-filters" id="gallery-filters"></div>
+    <div class="gallery-grid" id="gallery-full-grid"></div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-header">
+    <span class="eyebrow" data-i18n="pr_eye"></span>
+    <h2><span data-i18n="pr_t1"></span> <em data-i18n="pr_t2"></em></h2>
+  </div>
+  <p class="pricing-intro" data-i18n="pr_intro"></p>
+  <div class="pricing-group">
+    <span class="pricing-group-eyebrow" data-i18n="prg1_eye"></span>
+    <span class="pricing-group-title"   data-i18n="prg1_title"></span>
+    <div class="pricing-grid" id="pricing-grid"></div>
+  </div>
+  <div class="pricing-group">
+    <span class="pricing-group-eyebrow" data-i18n="prg2_eye"></span>
+    <span class="pricing-group-title"   data-i18n="prg2_title"></span>
+    <div class="options-grid" id="options-grid"></div>
+  </div>
+  <div class="pricing-group">
+    <span class="pricing-group-eyebrow" data-i18n="prg3_eye"></span>
+    <span class="pricing-group-title"   data-i18n="prg3_title"></span>
+    <div class="commercial-box">
+      <span class="commercial-price-tag">45 €</span>
+      <h3 data-i18n="com_h"></h3>
+      <p data-i18n="com_p1"></p>
+      <div class="commercial-terms" id="com-terms"></div>
+      <a class="contract-dl-btn" id="contract-dl-btn" href="#" onclick="downloadContract(event)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v13M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+        <span data-i18n="com_dl"></span>
+      </a>
+    </div>
+  </div>
+  <p class="pr-note" data-i18n="pr_note"></p>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- TOS -->
+<section id="tos">
+  <div class="section-header">
+    <span class="eyebrow" data-i18n="tos_eye"></span>
+    <h2><span data-i18n="tos_t1"></span> <em data-i18n="tos_t2"></em></h2>
+  </div>
+  <div class="tos-container" id="tos-list"><div class="tos-deco">§</div></div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-header">
+    <span class="eyebrow" data-i18n="faq_eye"></span>
+    <h2>FAQ</h2>
+  </div>
+  <div id="faq-list"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SOCIAL -->
+<section id="social">
+  <div class="section-header">
+    <span class="eyebrow" data-i18n="soc_eye"></span>
+    <h2><span data-i18n="soc_t1"></span> <em data-i18n="soc_t2"></em></h2>
+  </div>
+  <div class="social-links">
+    <a href="https://instagram.com/TONPSEUDO" target="_blank" class="social-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      Instagram
+    </a>
+    <a href="https://discord.gg/TONCODE" target="_blank" class="social-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+      Discord
+    </a>
+    <a href="https://stoat.social/TONPSEUDO" target="_blank" class="social-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      Stoat
+    </a>
+    <a href="https://purelyhuman.social/TONPSEUDO" target="_blank" class="social-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+      PurelyHuman
+    </a>
+    <a href="https://ko-fi.com/TONPSEUDO" target="_blank" class="social-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/></svg>
+      Ko-fi
+    </a>
+    <a href="https://toyhou.se/TONPSEUDO" target="_blank" class="social-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9.3V4h-3v2.6L12 3 2 12h3v8h6v-5h2v5h6v-8h3L19 9.3zM10 10c0-1.1.9-2 2-2s2 .9 2 2h-4z"/></svg>
+      Toyhouse
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span class="logo-sm">Navi<span style="color:var(--accent)">.</span>Blue</span>
+  <span data-i18n="foot_copy"></span>
+  <a href="#tos" onclick="closeGalleryPage()" data-i18n="foot_tos"></a>
+</footer>
+
+<!-- ADOPT POPUP -->
+<div class="popup-overlay" id="adopt-popup" onclick="closePopupOutside(event)">
+  <div class="popup-box" id="popup-box">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <div class="popup-gallery">
+      <div class="popup-main-img" id="popup-main-img"></div>
+      <div class="popup-thumbs" id="popup-thumbs"></div>
+    </div>
+    <div class="popup-info" id="popup-info"></div>
+  </div>
+</div>
+
+<!-- CLAIM FORM MODAL -->
+<div class="form-modal" id="claim-modal">
+  <div class="form-modal-box">
+    <button class="fm-close" onclick="closeModal('claim-modal')">✕</button>
+    <h3 data-i18n="claim_title"></h3>
+    <p data-i18n="claim_desc"></p>
+    <div class="fm-field"><label data-i18n="claim_pseudo"></label><input id="claim-pseudo" type="text" placeholder="@pseudo"></div>
+    <div class="fm-field"><label data-i18n="claim_network"></label>
+      <select id="claim-network">
+        <option value="instagram">Instagram</option>
+        <option value="discord">Discord</option>
+        <option value="stoat">Stoat</option>
+        <option value="purelyhuman">PurelyHuman</option>
+        <option value="toyhouse">Toyhouse</option>
+      </select>
+    </div>
+    <p class="fm-note" data-i18n="claim_note"></p>
+    <button class="fm-submit" onclick="submitClaim()" data-i18n="claim_submit"></button>
+  </div>
+</div>
+
+<!-- AUCTION BID FORM -->
+<div class="form-modal" id="bid-modal">
+  <div class="form-modal-box">
+    <button class="fm-close" onclick="closeModal('bid-modal')">✕</button>
+    <h3 data-i18n="bid_title"></h3>
+    <p id="bid-current-info" style="font-size:.82rem;color:var(--gold2);margin-bottom:.8rem;font-family:'Cormorant Garamond',serif;font-style:italic;"></p>
+    <div class="fm-field"><label data-i18n="bid_pseudo"></label><input id="bid-pseudo" type="text" placeholder="@pseudo"></div>
+    <div class="fm-field"><label data-i18n="bid_amount"></label><input id="bid-amount" type="number" min="1" placeholder="ex: 25"></div>
+    <p class="fm-note" data-i18n="bid_note"></p>
+    <button class="fm-submit" onclick="submitBid()" data-i18n="bid_submit"></button>
+  </div>
+</div>
+
+<!-- AUTOBUY FORM -->
+<div class="form-modal" id="autobuy-modal">
+  <div class="form-modal-box">
+    <button class="fm-close" onclick="closeModal('autobuy-modal')">✕</button>
+    <h3 data-i18n="ab_title"></h3>
+    <p data-i18n="ab_desc"></p>
+    <div class="fm-field"><label data-i18n="ab_pseudo"></label><input id="ab-pseudo" type="text" placeholder="@pseudo"></div>
+    <p class="fm-note" data-i18n="ab_note"></p>
+    <button class="fm-submit" onclick="submitAutobuy()" data-i18n="ab_submit"></button>
+  </div>
+</div>
+
+<!-- OUTFIT INFO POPUP -->
+<div class="outfit-popup" id="outfit-popup" onclick="closeOutfitPopup(event)">
+  <div class="outfit-popup-box">
+    <button class="outfit-popup-close" onclick="document.getElementById('outfit-popup').classList.remove('open')">✕</button>
+    <h3 id="outfit-popup-title"></h3>
+    <ul id="outfit-popup-list"></ul>
+  </div>
+</div>
+
+<!-- ADMIN LOCK -->
+<button class="admin-lock-btn" onclick="openLoginStep1()" title="Admin">🔒</button>
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeLoginModal()">✕</button>
+    <p class="modal-step-indicator" id="login-step-label"></p>
+    <h3 data-i18n="login_title"></h3>
+    <p data-i18n="login_desc"></p>
+    <input class="modal-input" id="admin-pw" type="password" onkeydown="if(event.key==='Enter')tryLogin()">
+    <p class="modal-error" id="login-err" data-i18n="login_err"></p>
+    <button class="modal-btn" onclick="tryLogin()" data-i18n="login_btn"></button>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin-panel">
+  <div class="admin-inner">
+    <div class="admin-header">
+      <div>
+        <h2 data-i18n="adm_title"></h2>
+        <p data-i18n="adm_desc"></p>
+      </div>
+      <button class="admin-close-btn" onclick="closeAdmin()" data-i18n="adm_close"></button>
+    </div>
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="showTab('adopts')" data-i18n="adm_tab1"></button>
+      <button class="admin-tab"        onclick="showTab('claims')" data-i18n="adm_tab2"></button>
+      <button class="admin-tab"        onclick="showTab('sales')"  data-i18n="adm_tab3"></button>
+    </div>
+    <div id="tab-adopts"></div>
+    <div id="tab-claims"  style="display:none"></div>
+    <div id="tab-sales"   style="display:none"></div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════
+   PASSWORDS (double step, SHA-256)
+═══════════════════════════════════════════ */
+let HASH1='', HASH2='';
+let loginStep=0; // 0=closed, 1=step1, 2=step2
+
+async function sha256(s){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+// Pre-compute both hashes on load
+HASH1='e7ead489e9cf5d1ad42df90af0df82348078dc1f69eab4b5b543565a3fc8bb9e';
+HASH2='051fbbfe033e183519e3c2cf5b5acdfbfb3259120b34d37d9ac38c6b55e0fe39';
+
+function openLoginStep1(){
+  loginStep=1;
+  document.getElementById('login-step-label').textContent='Étape 1 / 2';
+  document.getElementById('login-modal').classList.add('open');
+  document.getElementById('admin-pw').value='';
+  document.getElementById('login-err').style.display='none';
+  setTimeout(()=>document.getElementById('admin-pw').focus(),100);
+}
+function closeLoginModal(){
+  document.getElementById('login-modal').classList.remove('open');
+  loginStep=0;
+}
+async function tryLogin(){
+  const val=document.getElementById('admin-pw').value;
+  const h=await sha256(val);
+  document.getElementById('admin-pw').value='';
+  if(loginStep===1){
+    if(h===HASH1){
+      loginStep=2;
+      document.getElementById('login-step-label').textContent='Étape 2 / 2';
+      document.getElementById('login-err').style.display='none';
+    } else {
+      document.getElementById('login-err').style.display='block';
+    }
+  } else if(loginStep===2){
+    if(h===HASH2){
+      closeLoginModal();
+      openAdmin();
+    } else {
+      document.getElementById('login-err').style.display='block';
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════
+   DATA
+═══════════════════════════════════════════ */
+// MODE OPTIONS: 'standard' | 'claim' | 'auction'
+// auction: { active, autobuyPrice, endsAt (null=manual), bids:[{pseudo,amount,date}] }
+// claims: [{pseudo, network, date}]
+/* ═══════════════════════════════════════════
+   SUPABASE CONFIG
+═══════════════════════════════════════════ */
+const SB_URL='https://ytmtgbjhgojtzqbposms.supabase.co';
+const SB_KEY='sb_publishable_m7s-H_mrcLh5w5gSzCDsNA_0EnJrf4X';
+
+async function sbFetch(path, opts={}){
+  const res=await fetch(SB_URL+'/rest/v1/'+path,{
+    headers:{
+      'apikey':SB_KEY,
+      'Authorization':'Bearer '+SB_KEY,
+      'Content-Type':'application/json',
+      'Prefer': opts.prefer||'return=representation',
+      ...opts.headers
+    },
+    method: opts.method||'GET',
+    body: opts.body||undefined
+  });
+  if(!res.ok){
+    const err=await res.text();
+    console.error('Supabase error',res.status,err);
+    return null;
+  }
+  const text=await res.text();
+  return text?JSON.parse(text):null;
+}
+
+/* Load all adopts + their owners/claims/bids in one go */
+async function loadAllData(){
+  showLoading(true);
+  try{
+    const [rawAdopts, rawOwners, rawClaims, rawBids]=await Promise.all([
+      sbFetch('adopts?select=*&order=id.asc'),
+      sbFetch('owners?select=*&order=id.asc'),
+      sbFetch('claims?select=*&order=id.asc'),
+      sbFetch('bids?select=*&order=id.asc'),
+    ]);
+    if(!rawAdopts){showLoading(false);return;}
+    adopts=rawAdopts.map(a=>({
+      id:           a.id,
+      name:         a.name,
+      placeholder:  a.placeholder||'✦',
+      images:       a.images||[],
+      price:        a.price||'?? €',
+      taken:        a.taken||false,
+      mode:         a.mode||'standard',
+      fauna:        a.fauna||[],
+      desc:         a.description||'',
+      outfits:      a.outfits||[],
+      owners:       (rawOwners||[]).filter(o=>o.adopt_id===a.id).map(o=>({name:o.pseudo,date:o.date,dbId:o.id})),
+      claims:       (rawClaims||[]).filter(c=>c.adopt_id===a.id).map(c=>({pseudo:c.pseudo,network:c.network,date:c.date,dbId:c.id})),
+      auction: a.mode==='auction'?{
+        active:        a.auction_active||false,
+        autobuyPrice:  a.auction_autobuy_price||null,
+        endsAt:        null,
+        bids:          (rawBids||[]).filter(b=>b.adopt_id===a.id).map(b=>({pseudo:b.pseudo,amount:b.amount,date:b.date,dbId:b.id}))
+      }:undefined
+    }));
+    nextId=adopts.length?Math.max(...adopts.map(a=>a.id))+1:1;
+  }catch(e){console.error('loadAllData error',e);}
+  showLoading(false);
+  renderAdopts();
+  renderPricing();renderTOS();renderFAQ();
+  if(document.getElementById('gallery-page').classList.contains('open')) renderGalleryPage();
+}
+
+function showLoading(on){
+  let el=document.getElementById('global-loader');
+  if(!el){
+    el=document.createElement('div');el.id='global-loader';
+    el.style.cssText='position:fixed;inset:0;z-index:999;background:rgba(11,14,20,.85);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);';
+    el.innerHTML='<div style="font-family:\'Cormorant Garamond\',serif;font-size:1.4rem;font-style:italic;color:var(--accent2);letter-spacing:.08em;">Chargement…</div>';
+    document.body.appendChild(el);
+  }
+  el.style.display=on?'flex':'none';
+}
+
+/* ═══════════════════════════════════════════
+   DATA (populated from Supabase on load)
+═══════════════════════════════════════════ */
+let adopts=[];
+let nextId=1;
+const FAUNA_LIST=['ikran','palulukan','ilu','viperwolf','stormglider','pali'];
+let currentPopupId=null;
+
+/* ═══════════════════════════════════════════
+   TRANSLATIONS
+═══════════════════════════════════════════ */
+const T={
+fr:{
+  nav_about:'À propos',nav_gallery:'Adopts',nav_pricing:'Prix',nav_social:'Liens',
+  hero_eye:'Personnages originaux à adopter',
+  hero_sub:'Chaque personnage est unique. Une fois parti, il ne reviendra jamais.',
+  about_t1:'Un univers',about_t2:'à explorer',
+  about_p1:"Bienvenue ! Je suis Navi.Blue, artiste passionné·e par les univers imaginaires et les personnages originaux. Je crée des adopts variés, de l'univers d'Avatar à bien d'autres mondes encore.",
+  about_p2:"Chaque adopt est une pièce unique. Une fois adopté, ce personnage t'appartient entièrement et ne sera jamais revendu ni redessiné à l'identique.",
+  about_p3:'Pour toute question, retrouve-moi sur mes réseaux !',
+  sch_title:'Disponibilités',
+  sch_week_label:'Semaine (réponses)',sch_week:'<strong>8h – 17h</strong><br>Je réponds aux messages et confirme les claims.<br><small style="color:var(--text-dim)">(En stage jusqu\'au 24 avril)</small>',
+  sch_eve_label:'Soir semaine (envois)',sch_eve:'<strong>18h / 19h – 20h30</strong><br>Je peux envoyer les fichiers en soirée.',
+  sch_wknd_label:'Week-end (envois)',sch_wknd:'<strong>12h – 20h30</strong><br>Disponible sauf indication contraire.',
+  sch_note:'⚠️ En cas d\'indisponibilité exceptionnelle, je vous en informe par message. Toute première demande se fait via le bouton "Claim" sur le site.',
+  gal_eye:'Disponibles et à venir',gal_t1:'Les',gal_t2:'Adopts',
+  gal_desc:"Clique sur un personnage pour en voir les détails. Les grisés ont déjà trouvé leur foyer.",
+  gal_viewall:'Voir tous les adopts →',gal_close:'← Retour',
+  filter_all:'Tous',filter_available:'Disponibles',filter_claim:'Claims',filter_auction:'Auctions',filter_taken:'Adoptés',
+  s_available:'● Disponible',s_claim:'● Claim en cours',s_auction:'● Aux enchères',s_sold:'● Adopté',taken_label:'Adopté',
+  claim_count_one:'1 claim en cours',claim_count_many:'claims en cours',
+  pr_eye:'Tarifs',pr_t1:'Ce que',pr_t2:'je propose',
+  pr_intro:"Pas de commissions pour le moment, uniquement des adopts. Chaque character sheet inclut toujours une vue front, dos et un close-up du visage. Les couleurs sont en aplats propres, sans ombres.",
+  prg1_eye:'Character sheets',prg1_title:'Forfaits Avatar',
+  prg2_eye:'Suppléments',prg2_title:'Faune associée et fichiers sources',
+  prg3_eye:'Usage professionnel',prg3_title:'Licence commerciale',
+  com_h:'Forfait usage commercial',
+  com_p1:"Tu souhaites utiliser un adopt dans un projet commercial ? C'est possible sous conditions. Ce forfait s'ajoute au prix de l'adopt.",
+  com_dl:'Aperçu du contrat (PDF)',
+  outfit_label:'Ce que comprend "plusieurs tenues"',
+  outfit_li1:"1 à 2 tenues principales",outfit_li2:"1 à 2 tenues secondaires",
+  outfit_li3:"1 tenue Olo'eyktan",outfit_li4:"1 tenue de guerre",outfit_li5:"1 tenue de Tsahik",
+  pr_note:'Tous les prix sont en euros.',
+  tos_eye:'Règles',tos_t1:'Terms of',tos_t2:'Service',
+  faq_eye:'Questions fréquentes',
+  soc_eye:'Me retrouver',soc_t1:'Mes',soc_t2:'Réseaux',
+  foot_copy:'© 2024–2025 Navi.Blue — tous droits réservés',foot_tos:'Terms of Service',
+  login_title:'Accès admin',login_desc:'Espace réservé.',login_btn:'Valider',login_err:'Mot de passe incorrect.',
+  adm_title:'Panneau admin',adm_desc:'Gère les adopts, les claims et les ventes.',adm_close:'Fermer',
+  adm_tab1:'Adopts',adm_tab2:'Claims & Auctions',adm_tab3:'Historique ventes',
+  adm_add_title:'Ajouter un adopt',
+  adm_fn:'Nom',adm_fp:'Prix de base',adm_fe:'Emoji',adm_fi:'URLs images (une/ligne)',adm_fd:'Description',adm_fo:'Tenues (une/ligne)',adm_ff:'Faune',adm_fm:'Mode',adm_fab:'Prix auto-buy',adm_fb:'Ajouter',
+  adm_av:'Disponible',adm_tk:'Adopté',
+  adm_owner_lbl:'Owners',adm_claim_lbl:'Claims reçus',adm_bid_lbl:'Enchères',
+  claim_title:'Claim cet adopt',
+  claim_desc:"Première demande = priorité ! Envoie ta demande ici et je te contacterai pour finaliser. Pour toute question, privilégie Discord ou Instagram.",
+  claim_pseudo:'Ton pseudo',claim_network:'Réseau préféré',
+  claim_note:"⚠️ Les claims se font uniquement via ce formulaire. Je te contacterai ensuite pour confirmer.",
+  claim_submit:'Envoyer ma demande',
+  bid_title:'Faire une offre',bid_pseudo:'Ton pseudo',bid_amount:'Ton offre (€)',
+  bid_note:"La plus haute offre l'emporte. Je te contacterai pour confirmer.",bid_submit:'Placer mon offre',
+  ab_title:'Auto-buy',ab_desc:"En cliquant sur auto-buy, tu confirmes que tu achètes l'adopt directement au prix d'auto-buy.",
+  ab_pseudo:'Ton pseudo',ab_note:"L'auto-buy ferme immédiatement les enchères.",ab_submit:'Confirmer l\'auto-buy',
+  popup_outfits:'Tenues incluses',popup_fauna:'Faune associée',popup_taken:'Ce personnage a déjà été adopté.',
+  popup_autobuy:'Auto-buy',popup_ab_at:'Auto-buy à',
+  current_bid:'Offre actuelle',no_bids:'Pas encore d\'offres.',
+  com_terms:[
+    {label:'Périmètre',text:'Limité au projet décrit lors de l\'achat. Tout nouveau projet = nouvelle licence.'},
+    {label:'Crédits',text:'"Design original : Navi.Blue" requis dans les crédits.'},
+    {label:'Modifications',text:'Design adaptable aux besoins du projet, dans le respect des TOS.'},
+    {label:'Non-exclusivité',text:'Licence non-exclusive. Je reste libre d\'utiliser le design à des fins promo.'},
+  ],
+},
+en:{
+  nav_about:'About',nav_gallery:'Adopts',nav_pricing:'Pricing',nav_social:'Links',
+  hero_eye:'Original characters available for adoption',
+  hero_sub:"Every character is one of a kind. Once gone, they're gone forever.",
+  about_t1:'A world',about_t2:'to explore',
+  about_p1:"Welcome! I'm Navi.Blue, an artist who loves imaginary worlds and original character design. I create a variety of adopts, from the Avatar universe to many other worlds.",
+  about_p2:"Every adopt is unique. Once adopted, that character is fully yours and will never be resold or redrawn identically.",
+  about_p3:'For any questions, find me on my socials!',
+  sch_title:'Availability',
+  sch_week_label:'Weekdays (replies)',sch_week:'<strong>8am – 5pm</strong><br>I reply to messages and confirm claims.<br><small style="color:var(--text-dim)">(On internship until April 24)</small>',
+  sch_eve_label:'Weekday evenings (sends)',sch_eve:'<strong>6pm / 7pm – 8:30pm</strong><br>I can send files in the evening.',
+  sch_wknd_label:'Weekends (sends)',sch_wknd:'<strong>12pm – 8:30pm</strong><br>Available unless stated otherwise.',
+  sch_note:"⚠️ If I'm unexpectedly unavailable, I'll let you know by message. All first requests must go through the Claim button on the site.",
+  gal_eye:'Available and upcoming',gal_t1:'The',gal_t2:'Adopts',
+  gal_desc:"Click on a character to see their details. Greyed-out ones have already found a home.",
+  gal_viewall:'View all adopts →',gal_close:'← Back',
+  filter_all:'All',filter_available:'Available',filter_claim:'Claims',filter_auction:'Auctions',filter_taken:'Adopted',
+  s_available:'● Available',s_claim:'● Claim pending',s_auction:'● Auction',s_sold:'● Adopted',taken_label:'Adopted',
+  claim_count_one:'1 claim pending',claim_count_many:'claims pending',
+  pr_eye:'Pricing',pr_t1:'What',pr_t2:'I offer',
+  pr_intro:"No commissions for now, only adopts. Every character sheet always includes front, back, and face close-up. Colors are clean flat fills with no shading.",
+  prg1_eye:'Character sheets',prg1_title:'Avatar packages',
+  prg2_eye:'Add-ons',prg2_title:'Associated fauna and source files',
+  prg3_eye:'Professional use',prg3_title:'Commercial license',
+  com_h:'Commercial use package',
+  com_p1:"Want to use an adopt in a commercial project? It's possible under conditions. This package is added on top of the adopt price.",
+  com_dl:'Contract preview (PDF)',
+  outfit_label:'What "multiple outfits" includes',
+  outfit_li1:'1 to 2 main outfits',outfit_li2:'1 to 2 secondary outfits',
+  outfit_li3:"1 Olo'eyktan outfit",outfit_li4:'1 war outfit',outfit_li5:'1 Tsahik outfit',
+  pr_note:'All prices are in euros.',
+  tos_eye:'Rules',tos_t1:'Terms of',tos_t2:'Service',
+  faq_eye:'Frequently asked questions',
+  soc_eye:'Find me',soc_t1:'My',soc_t2:'Socials',
+  foot_copy:'© 2024–2025 Navi.Blue — all rights reserved',foot_tos:'Terms of Service',
+  login_title:'Admin access',login_desc:'Restricted area.',login_btn:'Submit',login_err:'Incorrect password.',
+  adm_title:'Admin panel',adm_desc:'Manage adopts, claims and sales.',adm_close:'Close',
+  adm_tab1:'Adopts',adm_tab2:'Claims & Auctions',adm_tab3:'Sales history',
+  adm_add_title:'Add an adopt',
+  adm_fn:'Name',adm_fp:'Base price',adm_fe:'Emoji',adm_fi:'Image URLs (one/line)',adm_fd:'Description',adm_fo:'Outfits (one/line)',adm_ff:'Fauna',adm_fm:'Mode',adm_fab:'Auto-buy price',adm_fb:'Add',
+  adm_av:'Available',adm_tk:'Adopted',
+  adm_owner_lbl:'Owners',adm_claim_lbl:'Received claims',adm_bid_lbl:'Bids',
+  claim_title:'Claim this adopt',
+  claim_desc:"First come, first served! Submit your request here and I'll contact you to finalize. For any questions, prefer Discord or Instagram.",
+  claim_pseudo:'Your username',claim_network:'Preferred network',
+  claim_note:"⚠️ Claims are only accepted through this form. I'll reach out to confirm.",
+  claim_submit:'Send my request',
+  bid_title:'Place a bid',bid_pseudo:'Your username',bid_amount:'Your offer (€)',
+  bid_note:"Highest bid wins. I'll contact you to confirm.",bid_submit:'Place bid',
+  ab_title:'Auto-buy',ab_desc:"By clicking auto-buy, you confirm you're purchasing the adopt directly at the auto-buy price.",
+  ab_pseudo:'Your username',ab_note:"Auto-buy immediately closes the auction.",ab_submit:'Confirm auto-buy',
+  popup_outfits:'Included outfits',popup_fauna:'Associated fauna',popup_taken:'This character has already been adopted.',
+  popup_autobuy:'Auto-buy',popup_ab_at:'Auto-buy at',
+  current_bid:'Current bid',no_bids:'No bids yet.',
+  com_terms:[
+    {label:'Scope',text:'Limited to the project described at purchase. Any new project = new license.'},
+    {label:'Credits',text:'"Original design: Navi.Blue" required in credits.'},
+    {label:'Modifications',text:'Design may be adapted to project needs, within the general TOS.'},
+    {label:'Non-exclusivity',text:"Non-exclusive license. I remain free to use the original design for promo purposes."},
+  ],
+},
+};
+
+/* Pricing data */
+const pricingData={
+fr:{g1:[
+  {navi:'Nawma',  title:'Character sheet basique',                price:'15 €',includes:['Vue front, dos et close-up visage','1 tenue','Couleurs en aplats']},
+  {navi:'Tìran',  title:'Basique + Stripes',                      price:'18 €',includes:['Vue front, dos et close-up visage','1 tenue','Corps nu (front & dos) pour voir les stripes en intégralité, sans vêtements ni cheveux']},
+  {navi:'Tìftia', title:'Basique + Peintures de guerre',          price:'22 €',includes:['Vue front, dos et close-up visage','1 tenue + variante peintures','Corps nu (front & dos) pour voir les peintures en intégralité']},
+  {navi:'Nantang',title:'Basique + Stripes et Peintures',         price:'25 €',includes:['Vue front, dos et close-up visage','1 tenue + variante peintures','Corps nu (front & dos) montrant stripes et peintures en intégralité']},
+  {navi:'Toruk',  title:'Plusieurs tenues',                       price:'32 €',includes:['Vue front, dos et close-up visage','Plusieurs tenues (voir détail ci-dessous)','Sans stripes ni peintures']},
+  {navi:'Eywa',   title:'Plusieurs tenues + Stripes et Peintures',price:'45 à 60 €',includes:['Vue front, dos et close-up visage','Plusieurs tenues + variantes peintures','Corps nu (front & dos) en intégralité']},
+],g2:[
+  {navi:'Avatar Fauna',  title:'Faune associée',              price:'+10 à 15 € / animal',includes:["Character sheet de l'animal associé",'Vue front et dos','Inclus par défaut ou vendu séparément']},
+  {navi:"Sa'nok Files",  title:'Fichiers sources (CSP + PSD)',price:'+15 €',              includes:['.clip et .psd inclus','Calques organisés','Transférables lors d\'une revente','Sur demande uniquement']},
+]},
+en:{g1:[
+  {navi:'Nawma',  title:'Basic character sheet',                price:'15 €',includes:['Front, back and face close-up','1 outfit','Clean flat colors']},
+  {navi:'Tìran',  title:'Basic + Stripes',                      price:'18 €',includes:['Front, back and face close-up','1 outfit','Bare body (front & back) to show stripes in full, without clothing or hair']},
+  {navi:'Tìftia', title:'Basic + War Paints',                   price:'22 €',includes:['Front, back and face close-up','1 outfit + war paint variant','Bare body (front & back) to show war paints in full']},
+  {navi:'Nantang',title:'Basic + Stripes & War Paints',         price:'25 €',includes:['Front, back and face close-up','1 outfit + war paint variant','Bare body (front & back) showing stripes and war paints in full']},
+  {navi:'Toruk',  title:'Multiple outfits',                     price:'32 €',includes:['Front, back and face close-up','Multiple outfits (see detail below)','No stripes or war paints']},
+  {navi:'Eywa',   title:'Multiple outfits + Stripes & War Paints',price:'45 to 60 €',includes:['Front, back and face close-up','Multiple outfits + war paint variants','Bare body (front & back) in full']},
+],g2:[
+  {navi:'Avatar Fauna',  title:'Associated fauna',              price:'+10 to 15 € / animal',includes:['Character sheet for the associated animal','Front and back views','Included by default or sold separately']},
+  {navi:"Sa'nok Files",  title:'Source files (CSP + PSD)',      price:'+15 €',              includes:['.clip and .psd both included','Organized layers','Transferable on official resale','On request only']},
+]}};
+
+/* TOS */
+const tosData={
+fr:[
+  {num:'01',h:'Crédits',tag:'ok',tagText:'Requis au premier partage',p:"La première fois que tu partages du contenu avec ton adopt, merci de mentionner Navi.Blue. Après ça, si quelqu'un te demande qui a créé le personnage ou te complimente sur ton OC, c'est sympa de mentionner que c'est un adopt — mais c'est à ton appréciation."},
+  {num:'02',h:'Contenu pour adultes (NSFW)',tag:'inf',tagText:'Conditions',p:"Ton personnage t'appartient. Si tu crées du contenu NSFW, c'est ton droit. Je veux juste ne pas être associé·e à ce type de contenu : ne me tague pas et ne me mentionne pas en lien avec ça."},
+  {num:'03',h:'Usage commercial',tag:'ask',tagText:'Licence requise',p:'Utiliser un adopt dans un projet commercial nécessite une licence dédiée (voir section Tarifs). Sans cette licence, l\'usage reste strictement personnel.'},
+  {num:'04',h:'Modifier le design',tag:'ok',tagText:'Autorisé',p:"Tu peux adapter le design à ta guise. Ce personnage est à toi. Évite juste de le rendre tellement méconnaissable que le travail d'origine disparaisse complètement."},
+  {num:'05',h:'Revente',tag:'ask',tagText:'Conditions + notification obligatoire',p:"Tu peux revendre ton adopt au prix d'achat ou moins. Si tu y as ajouté de l'art personnel, une légère hausse est acceptable. Informe-moi de toute revente, c'est indispensable pour éviter les dramas et garder une trace des propriétaires."},
+  {num:'06',h:'Fichiers sources lors d\'une revente',tag:'ok',tagText:'Transférables',p:"Si tu as acheté les fichiers sources, ils font partie de ton adopt et peuvent être transmis au nouveau propriétaire lors d'une revente officielle. Le nouveau owner reste soumis aux mêmes conditions."},
+  {num:'07',h:'Fichiers sources : redistribution',tag:'no',tagText:'Interdit',p:"Les fichiers sources ne peuvent pas être partagés, distribués ou revendus séparément."},
+  {num:'08',h:'Problèmes lors de l\'envoi',tag:'inf',tagText:'Contacte-moi !',p:"Si tu rencontres un problème à la réception des fichiers (corruption, fichier manquant, erreur d'envoi...) contacte-moi immédiatement par message ! C'est une erreur de ma part et je tiens à la corriger aussi vite que possible."},
+  {num:'09',h:'Mes droits en tant qu\'artiste',tag:'inf',tagText:'Info',p:"Je garde le droit d'utiliser le design original dans mon portfolio et sur mes réseaux. Le personnage t'appartient, le dessin reste le mien."},
+  {num:'10',h:'Paiement',tag:'no',tagText:'Pas de remboursement',p:"Les ventes sont définitives une fois l'adopt envoyé. Prends le temps de vérifier avant de confirmer."},
+],
+en:[
+  {num:'01',h:'Credits',tag:'ok',tagText:'Required on first share',p:"The first time you share content featuring your adopt, please mention Navi.Blue. After that, if someone asks who created the character or compliments your OC, it's a nice gesture to mention it's an adopt — but it's up to you."},
+  {num:'02',h:'Adult content (NSFW)',tag:'inf',tagText:'Conditions',p:"Your character belongs to you. If you create NSFW content, that's your right. I just don't want to be associated with that: please don't tag me or mention me in connection with it."},
+  {num:'03',h:'Commercial use',tag:'ask',tagText:'License required',p:'Using an adopt in a commercial project requires a dedicated license (see Pricing). Without it, use remains strictly personal.'},
+  {num:'04',h:'Modifying the design',tag:'ok',tagText:'Allowed',p:"You can adapt the design however you like. This character is yours. Just don't change it so much that the original work is completely unrecognizable."},
+  {num:'05',h:'Reselling',tag:'ask',tagText:'Conditions + notification required',p:"You can resell at the original price or lower. If you've added personal artwork, a small increase is fine. Notify me of any resale — essential to avoid drama and track ownership."},
+  {num:'06',h:'Source files when reselling',tag:'ok',tagText:'Transferable',p:"If you purchased the source files, they can be passed on to the new owner during an officially notified resale. Same conditions apply."},
+  {num:'07',h:'Source files: redistribution',tag:'no',tagText:'Forbidden',p:"Source files cannot be shared, distributed, or resold separately."},
+  {num:'08',h:'Issues during delivery',tag:'inf',tagText:'Contact me!',p:"If you encounter any issue receiving the files (corruption, missing file, sending error...) contact me immediately by message! It's my mistake and I want to fix it as quickly as possible."},
+  {num:'09',h:'Artist rights',tag:'inf',tagText:'Info',p:"I keep the right to use the original design in my portfolio and on social media. The character is yours; the drawing remains mine."},
+  {num:'10',h:'Payment',tag:'no',tagText:'No refunds',p:"Sales are final once the adopt has been sent. Please double-check before confirming."},
+],
+};
+
+/* FAQ */
+const faqData={
+fr:[
+  {q:"Comment adopter un personnage ?",a:"Clique sur le bouton 'Claim' dans la popup du personnage et remplis le formulaire. Je te contacterai ensuite pour finaliser. Pour toute question générale, préfère Discord ou Instagram."},
+  {q:"Comment fonctionnent les claims ?",a:"Premier arrivé, premier servi ! Envoie ta demande via le formulaire sur le site. Je te contacterai pour confirmer. Le claim est visible sur la card du personnage."},
+  {q:"Comment fonctionnent les auctions ?",a:"Fais une offre via le bouton sur la popup du personnage. La plus haute offre l'emporte. S'il y a un prix auto-buy, tu peux acheter directement à ce prix et fermer l'enchère immédiatement."},
+  {q:"Les animaux sont-ils toujours inclus ?",a:"Pas forcément. Certains adopts sont associés à des animaux qui ont leur propre character sheet. Tu peux les acheter en bundle ou séparément."},
+  {q:"Pourquoi faut-il te notifier en cas de revente ?",a:"Pour éviter les dramas et les malentendus. Ça me permet de garder une trace des propriétaires légitimes."},
+  {q:"Comment reçois-je mes fichiers ?",a:"Via un lien WeTransfer ou Smash. Je t'enverrai le lien par message sur le réseau que tu as indiqué lors du claim. En cas de problème à la réception, contacte-moi immédiatement !"},
+  {q:"Est-ce que tu fais des commissions ?",a:"Pas pour le moment, je me concentre sur les adopts."},
+],
+en:[
+  {q:"How do I adopt a character?",a:"Click the 'Claim' button in the character's popup and fill out the form. I'll contact you to finalize. For general questions, prefer Discord or Instagram."},
+  {q:"How do claims work?",a:"First come, first served! Submit your request via the form on the site. I'll contact you to confirm. The claim will appear on the character's card."},
+  {q:"How do auctions work?",a:"Place a bid via the button in the character popup. Highest bid wins. If there's an auto-buy price, you can buy immediately at that price and close the auction."},
+  {q:"Are the animals always included?",a:"Not necessarily. Some adopts come with associated animals that have their own character sheet. You can buy them as a bundle or separately."},
+  {q:"Why do I need to notify you when reselling?",a:"To avoid drama and misunderstandings. It lets me keep track of legitimate owners."},
+  {q:"How do I receive my files?",a:"Via a WeTransfer or Smash link. I'll send it by message on the network you indicated during the claim. If you have any issue receiving files, contact me immediately!"},
+  {q:"Do you take commissions?",a:"Not right now — I'm focusing on adopts."},
+],
+};
+
+/* ═══════════════════════════════════════════
+   CAROUSEL ENGINE
+═══════════════════════════════════════════ */
+const carState={};
+function getVis(){return window.innerWidth<=480?1:window.innerWidth<=900?2:3;}
+
+function buildCarousel(trackId,dotsId,prevId,nextId,slides,slideClass,priceMode){
+  const track=document.getElementById(trackId);
+  const dots=document.getElementById(dotsId);
+  if(!track||!dots) return;
+  track.innerHTML=''; dots.innerHTML='';
+  carState[trackId]={idx:0,slides,slideClass,dotsId,prevId,nextId};
+  slides.forEach(s=>track.appendChild(s));
+  const vis=getVis();
+  const pages=Math.ceil(slides.length/vis);
+  for(let i=0;i<pages;i++){
+    const d=document.createElement('button');
+    d.className='carousel-dot'+(i===0?' active':'');
+    const pi=i; d.onclick=()=>carTo(trackId,pi);
+    dots.appendChild(d);
+  }
+  updateSlideWidths(trackId,slideClass,priceMode);
+  carTo(trackId,0);
+}
+
+function updateSlideWidths(trackId,slideClass,priceMode){
+  const track=document.getElementById(trackId); if(!track) return;
+  const vis=getVis();
+  const gap=priceMode?1.2:1.4;
+  track.querySelectorAll('.'+slideClass).forEach(sl=>{
+    sl.style.minWidth=`calc(${100/vis}% - ${vis>1?gap+'rem':'0px'})`;
+  });
+}
+
+function carTo(trackId,idx){
+  const s=carState[trackId]; if(!s) return;
+  const vis=getVis();
+  const pages=Math.ceil(s.slides.length/vis);
+  idx=Math.max(0,Math.min(idx,pages-1));
+  s.idx=idx;
+  const track=document.getElementById(trackId);
+  const allSlides=track.querySelectorAll('.'+s.slideClass);
+  if(!allSlides.length) return;
+  const gap=parseFloat(getComputedStyle(allSlides[0]).paddingRight||0);
+  const w=allSlides[0].offsetWidth+gap;
+  track.style.transform=`translateX(-${idx*vis*w}px)`;
+  document.querySelectorAll('#'+s.dotsId+' .carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+  const prev=document.getElementById(s.prevId);
+  const next=document.getElementById(s.nextId);
+  if(prev) prev.disabled=idx===0;
+  if(next) next.disabled=idx>=pages-1;
+}
+
+function adoptMove(d){const s=carState['adopt-track'];if(s) carTo('adopt-track',s.idx+d);}
+// pricing now uses a static grid — no carousel needed
+
+window.addEventListener('resize',()=>{
+  const s=carState['adopt-track'];
+  if(s){updateSlideWidths('adopt-track',s.slideClass,false);carTo('adopt-track',s.idx);}
+});
+
+/* ═══════════════════════════════════════════
+   CARD BUILDER
+═══════════════════════════════════════════ */
+function makeAdoptCard(a,lang,forCarousel){
+  const taken=a.taken;
+  const isAuction=a.mode==='auction'&&a.auction?.active;
+  const isClaim=a.mode==='claim';
+  const claimCount=a.claims?.length||0;
+  const topBid=isAuction&&a.auction.bids?.length?Math.max(...a.auction.bids.map(b=>b.amount)):null;
+
+  let statusClass='s-available', statusText=T[lang].s_available;
+  let cardClass='adopt-card';
+  if(taken){statusClass='s-sold';statusText=T[lang].s_sold;cardClass+=' taken';}
+  else if(isAuction){statusClass='s-auction';statusText=T[lang].s_auction;cardClass+=' auction-card';}
+  else if(isClaim&&claimCount>0){statusClass='s-claim';statusText=T[lang].s_claim;}
+
+  const faunaBadges=a.fauna.map(f=>`<span class="badge badge-fauna">${f}</span>`).join('');
+  const claimBadge=isClaim&&claimCount>0&&!taken?`<span class="badge badge-claim">${claimCount} claim${claimCount>1?'s':''}</span>`:'';
+  const auctionBadge=isAuction?`<span class="badge badge-auction">⚡ ${topBid?topBid+' €':'—'}</span>`:'';
+  const imgContent=a.images?.length?`<img src="${a.images[0]}" alt="${a.name}">`:`<span class="card-img-placeholder">${a.placeholder}</span>`;
+  const priceDisplay=isAuction&&topBid?`<p class="card-auction-price">⚡ ${topBid} €</p>`:`<p class="card-price">${a.price}</p>`;
+  const clickHandler=taken?'':'onclick="openPopup('+a.id+')"';
+
+  const card=document.createElement('div');
+  card.className=cardClass;
+  card.setAttribute(clickHandler?'onclick':'data-noop',taken?'':('openPopup('+a.id+')'));
+  if(!taken) card.onclick=()=>openPopup(a.id);
+  card.innerHTML=`
+    <div class="card-img" data-label="${T[lang].taken_label}">${imgContent}</div>
+    <div class="card-body">
+      <p class="card-name">${a.name}</p>
+      <span class="card-status ${statusClass}">${statusText}</span>
+      ${priceDisplay}
+      <div class="card-badges">${faunaBadges}${claimBadge}${auctionBadge}</div>
+    </div>`;
+  return card;
+}
+
+/* ═══════════════════════════════════════════
+   RENDER ADOPT CAROUSEL
+═══════════════════════════════════════════ */
+let adoptSlides=[];
+function renderAdopts(){
+  const lang=currentLang;
+  adoptSlides=adopts.map(a=>{
+    const slide=document.createElement('div');
+    slide.className='adopt-slide';
+    slide.appendChild(makeAdoptCard(a,lang,true));
+    return slide;
+  });
+  buildCarousel('adopt-track','adopt-dots','adopt-prev','adopt-next',adoptSlides,'adopt-slide',false);
+}
+
+/* ═══════════════════════════════════════════
+   GALLERY FULL PAGE
+═══════════════════════════════════════════ */
+let galleryFilter='all';
+function openGalleryPage(){
+  document.getElementById('gallery-page').classList.add('open');
+  document.body.style.overflow='hidden';
+  renderGalleryPage();
+}
+function closeGalleryPage(){
+  document.getElementById('gallery-page').classList.remove('open');
+  document.body.style.overflow='';
+}
+function renderGalleryPage(){
+  const lang=currentLang;
+  // Filters
+  const filtersEl=document.getElementById('gallery-filters');
+  const filters=[
+    {k:'all',l:T[lang].filter_all},
+    {k:'available',l:T[lang].filter_available},
+    {k:'claim',l:T[lang].filter_claim},
+    {k:'auction',l:T[lang].filter_auction},
+    {k:'taken',l:T[lang].filter_taken},
+  ];
+  filtersEl.innerHTML=filters.map(f=>`<button class="filter-btn${galleryFilter===f.k?' active':''}" onclick="setFilter('${f.k}')">${f.l}</button>`).join('');
+  // Grid
+  const grid=document.getElementById('gallery-full-grid');
+  grid.innerHTML='';
+  adopts.filter(a=>{
+    if(galleryFilter==='all') return true;
+    if(galleryFilter==='taken') return a.taken;
+    if(galleryFilter==='available') return !a.taken&&a.mode==='standard';
+    if(galleryFilter==='claim') return !a.taken&&a.mode==='claim';
+    if(galleryFilter==='auction') return !a.taken&&a.mode==='auction'&&a.auction?.active;
+    return true;
+  }).forEach(a=>grid.appendChild(makeAdoptCard(a,lang,false)));
+}
+function setFilter(f){galleryFilter=f;renderGalleryPage();}
+
+/* ═══════════════════════════════════════════
+   POPUP
+═══════════════════════════════════════════ */
+function openPopup(id){
+  const a=adopts.find(x=>x.id===id); if(!a) return;
+  currentPopupId=id;
+  const lang=currentLang;
+  const imgs=a.images||[];
+
+  // Gallery side
+  const mainEl=document.getElementById('popup-main-img');
+  const thumbsEl=document.getElementById('popup-thumbs');
+
+  function setMain(idx){
+    if(imgs.length) mainEl.innerHTML=`<img src="${imgs[idx]}" alt="${a.name}">`;
+    else mainEl.innerHTML=`<span class="popup-main-placeholder">${a.placeholder}</span>`;
+    thumbsEl.querySelectorAll('.popup-thumb').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  }
+  if(imgs.length>1){
+    thumbsEl.innerHTML=imgs.map((url,i)=>`<div class="popup-thumb${i===0?' active':''}" onclick="window._popupSetMain(${i})"><img src="${url}" alt="vue ${i+1}"></div>`).join('');
+  } else if(imgs.length===1){
+    thumbsEl.innerHTML=`<div class="popup-thumb active"><img src="${imgs[0]}" alt="${a.name}"></div>`;
+  } else {
+    thumbsEl.innerHTML=`<div class="popup-thumb active"><span class="popup-thumb-ph">${a.placeholder}</span></div>`;
+  }
+  setMain(0);
+  window._popupSetMain=setMain;
+
+  // Info side
+  const isAuction=a.mode==='auction'&&a.auction?.active;
+  const isClaim=!a.taken&&a.mode==='claim';
+  const isStandard=!a.taken&&a.mode==='standard';
+  const claimCount=a.claims?.length||0;
+  const bids=a.auction?.bids||[];
+  const topBid=bids.length?Math.max(...bids.map(b=>b.amount)):null;
+  const autobuyPrice=a.auction?.autobuyPrice;
+
+  let statusClass='s-available', statusText=T[lang].s_available;
+  if(a.taken){statusClass='s-sold';statusText=T[lang].s_sold;}
+  else if(isAuction){statusClass='s-auction';statusText=T[lang].s_auction;}
+  else if(isClaim&&claimCount>0){statusClass='s-claim';statusText=T[lang].s_claim;}
+
+  const faunaHtml=a.fauna.length?a.fauna.map(f=>`<span class="badge badge-fauna">${f}</span>`).join(''):`<span style="font-size:.77rem;color:var(--text-dim);font-style:italic">${lang==='fr'?'Aucune':'None'}</span>`;
+  const outfitsHtml=a.outfits?.length?a.outfits.map(o=>`<span class="popup-outfit-tag">${o}</span>`).join(''):`<span style="font-size:.77rem;color:var(--text-dim);font-style:italic">—</span>`;
+
+  let actionHtml='';
+  if(a.taken){
+    actionHtml=`<div class="popup-action-area"><div class="popup-taken-banner">${T[lang].popup_taken}</div></div>`;
+  } else if(isAuction){
+    const bidInfo=topBid?`<strong>${T[lang].current_bid} : ${topBid} €</strong>`:T[lang].no_bids;
+    const autobuyBtn=autobuyPrice&&!topBid?`<button class="popup-action-btn btn-autobuy" onclick="openAutobuyModal()">${T[lang].popup_autobuy} — ${T[lang].popup_ab_at} ${autobuyPrice} €</button>`:'';
+    actionHtml=`<div class="popup-action-area">
+      <div class="auction-info-box">${bidInfo}${autobuyPrice?`<br><span style="font-size:.75rem;color:var(--text-dim)">${T[lang].popup_ab_at} : ${autobuyPrice} €</span>`:''}</div>
+      <button class="popup-action-btn btn-auction" onclick="openBidModal()">⚡ ${lang==='fr'?'Enchérir':'Place a bid'}</button>
+      ${autobuyBtn}
+    </div>`;
+  } else if(isClaim){
+    const cCount=claimCount>0?`<p class="claim-count">⚑ ${claimCount>1?claimCount+' '+T[lang].claim_count_many:T[lang].claim_count_one}</p>`:'';
+    actionHtml=`<div class="popup-action-area">${cCount}<button class="popup-action-btn btn-claim" onclick="openClaimModal()">⚑ Claim</button></div>`;
+  } else if(isStandard){
+    actionHtml=`<div class="popup-action-area"><button class="popup-action-btn btn-claim" onclick="openClaimModal()">⚑ Claim</button></div>`;
+  }
+
+  document.getElementById('popup-info').innerHTML=`
+    ${a.taken?`<div class="popup-taken-banner">${T[lang].popup_taken}</div>`:''}
+    <div>
+      <p class="popup-name">${a.name}</p>
+      <div class="popup-status-price">
+        <span class="card-status ${statusClass}">${statusText}</span>
+        <span class="popup-price">${a.price}</span>
+      </div>
+    </div>
+    <div class="popup-divider"></div>
+    <div><p class="popup-section-label">Description</p><p class="popup-desc">${a.desc||'—'}</p></div>
+    <div><p class="popup-section-label">${T[lang].popup_outfits}</p><div class="popup-outfits">${outfitsHtml}</div></div>
+    <div><p class="popup-section-label">${T[lang].popup_fauna}</p><div class="popup-fauna-row">${faunaHtml}</div></div>
+    ${actionHtml}`;
+
+  document.getElementById('adopt-popup').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePopup(){
+  document.getElementById('adopt-popup').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closePopupOutside(e){if(e.target===document.getElementById('adopt-popup')) closePopup();}
+
+/* ═══════════════════════════════════════════
+   CLAIM / BID / AUTOBUY MODALS
+═══════════════════════════════════════════ */
+function openClaimModal(){document.getElementById('claim-modal').classList.add('open');}
+function openBidModal(){
+  const a=adopts.find(x=>x.id===currentPopupId); if(!a) return;
+  const lang=currentLang;
+  const bids=a.auction?.bids||[];
+  const topBid=bids.length?Math.max(...bids.map(b=>b.amount)):null;
+  document.getElementById('bid-current-info').textContent=topBid?`${T[lang].current_bid} : ${topBid} €`:T[lang].no_bids;
+  document.getElementById('bid-modal').classList.add('open');
+}
+function openAutobuyModal(){document.getElementById('autobuy-modal').classList.add('open');}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+
+async function submitClaim(){
+  const pseudo=document.getElementById('claim-pseudo').value.trim();
+  const network=document.getElementById('claim-network').value;
+  if(!pseudo||!currentPopupId) return;
+  const a=adopts.find(x=>x.id===currentPopupId); if(!a) return;
+  const row=await sbFetch('claims',{
+    method:'POST',
+    body:JSON.stringify({adopt_id:a.id,pseudo,network,date:new Date().toISOString().slice(0,10)})
+  });
+  if(row&&row[0]){
+    if(!a.claims) a.claims=[];
+    a.claims.push({pseudo,network,date:new Date().toISOString().slice(0,10),dbId:row[0].id});
+  }
+  closeModal('claim-modal'); closePopup();
+  renderAdopts();
+  if(document.getElementById('gallery-page').classList.contains('open')) renderGalleryPage();
+  alert(currentLang==='fr'?`✓ Demande envoyée ! Je te contacterai sur ${network}.`:`✓ Request sent! I'll contact you on ${network}.`);
+}
+
+async function submitBid(){
+  const pseudo=document.getElementById('bid-pseudo').value.trim();
+  const amount=parseFloat(document.getElementById('bid-amount').value);
+  if(!pseudo||!amount||!currentPopupId) return;
+  const a=adopts.find(x=>x.id===currentPopupId); if(!a||!a.auction) return;
+  const topBid=a.auction.bids?.length?Math.max(...a.auction.bids.map(b=>b.amount)):0;
+  if(amount<=topBid){alert(currentLang==='fr'?`L'offre doit dépasser ${topBid} €.`:`Bid must exceed ${topBid} €.`);return;}
+  const row=await sbFetch('bids',{
+    method:'POST',
+    body:JSON.stringify({adopt_id:a.id,pseudo,amount,date:new Date().toISOString().slice(0,10)})
+  });
+  if(row&&row[0]){
+    a.auction.bids.push({pseudo,amount,date:new Date().toISOString().slice(0,10),dbId:row[0].id});
+  }
+  closeModal('bid-modal'); closePopup();
+  renderAdopts();
+  if(document.getElementById('gallery-page').classList.contains('open')) renderGalleryPage();
+  alert(currentLang==='fr'?`✓ Offre de ${amount} € enregistrée !`:`✓ Bid of ${amount} € recorded!`);
+}
+
+async function submitAutobuy(){
+  const pseudo=document.getElementById('ab-pseudo').value.trim();
+  if(!pseudo||!currentPopupId) return;
+  const a=adopts.find(x=>x.id===currentPopupId); if(!a||!a.auction) return;
+  // Mark adopt as taken + close auction in DB
+  await sbFetch(`adopts?id=eq.${a.id}`,{method:'PATCH',prefer:'return=minimal',body:JSON.stringify({taken:true,auction_active:false})});
+  // Add owner in DB
+  const row=await sbFetch('owners',{method:'POST',body:JSON.stringify({adopt_id:a.id,pseudo,date:new Date().toISOString().slice(0,10)})});
+  a.taken=true; a.auction.active=false;
+  if(!a.owners) a.owners=[];
+  a.owners.push({name:pseudo,date:new Date().toISOString().slice(0,10),dbId:row?.[0]?.id});
+  closeModal('autobuy-modal'); closePopup();
+  renderAdopts();
+  if(document.getElementById('gallery-page').classList.contains('open')) renderGalleryPage();
+  alert(currentLang==='fr'?`✓ Auto-buy confirmé pour ${pseudo} !`:`✓ Auto-buy confirmed for ${pseudo}!`);
+}
+
+/* ═══════════════════════════════════════════
+   PRICING
+═══════════════════════════════════════════ */
+function closeOutfitPopup(e){if(e.target===document.getElementById('outfit-popup')) document.getElementById('outfit-popup').classList.remove('open');}
+
+function downloadContract(e){
+  e.preventDefault();
+  const lang=currentLang;
+  // Generates a minimal placeholder PDF-like text file until the real contract is ready
+  const content=lang==='fr'
+    ?`CONTRAT DE LICENCE COMMERCIALE — NAVI.BLUE
+═══════════════════════════════════════════════
+
+[Document provisoire — version complète à venir]
+
+Ce contrat est en cours de rédaction. Il définira les conditions
+d'utilisation commerciale d'un adopt Navi.Blue.
+
+Points prévus :
+• Périmètre d'utilisation (projet, support, durée)
+• Crédits obligatoires ("design original : Navi.Blue")
+• Possibilité d'adaptation du design
+• Caractère non-exclusif de la licence
+• Tarif forfaitaire : 45 €
+
+Pour toute question, contactez-moi sur Discord ou Instagram.
+
+© Navi.Blue — tous droits réservés`
+    :`COMMERCIAL LICENSE CONTRACT — NAVI.BLUE
+═══════════════════════════════════════════════
+
+[Placeholder — full version coming soon]
+
+This contract is being drafted. It will define the terms
+of commercial use of a Navi.Blue adopt.
+
+Planned sections:
+• Scope of use (project, medium, duration)
+• Mandatory credits ("original design: Navi.Blue")
+• Design adaptation rights
+• Non-exclusive license terms
+• Flat fee: 45 €
+
+For any questions, reach me on Discord or Instagram.
+
+© Navi.Blue — all rights reserved`;
+
+  const blob=new Blob([content],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=lang==='fr'?'Navi.Blue_Contrat_Commercial.txt':'Navi.Blue_Commercial_Contract.txt';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+}
+function openOutfitPopup(lang){
+  document.getElementById('outfit-popup-title').textContent=T[lang].outfit_label;
+  document.getElementById('outfit-popup-list').innerHTML=
+    [T[lang].outfit_li1,T[lang].outfit_li2,T[lang].outfit_li3,T[lang].outfit_li4,T[lang].outfit_li5]
+    .map(li=>`<li>${li}</li>`).join('');
+  document.getElementById('outfit-popup').classList.add('open');
+}
+
+function renderPricing(){
+  const lang=currentLang;
+  // G1 — grid with gold gradient tiers (index 0-5, tiers: 0-1 blue, 2-3 mid, 4 high, 5 max)
+  const tierClass=['','','tier-mid','tier-mid','tier-high','tier-max'];
+  const hasOutfits=[false,false,false,false,true,true]; // show info btn on Toruk & Eywa
+  const grid=document.getElementById('pricing-grid'); grid.innerHTML='';
+  pricingData[lang].g1.forEach((c,i)=>{
+    const card=document.createElement('div');
+    card.className='pricing-card'+(tierClass[i]?' '+tierClass[i]:'');
+    const lis=c.includes.map(li=>`<li>${li}</li>`).join('');
+    const infoBtn=hasOutfits[i]?`<button class="pc-info-btn" onclick="openOutfitPopup('${lang}')" title="Plus d'infos">i</button>`:'';
+    card.innerHTML=`${infoBtn}<p class="pc-navi">${c.navi}</p><p class="pc-title">${c.title}</p><ul class="pc-includes">${lis}</ul><p class="pc-price">${c.price}</p>`;
+    grid.appendChild(card);
+  });
+  // G2 grid — Fauna blue, Sa'nok gold-only
+  const og=document.getElementById('options-grid'); og.innerHTML='';
+  pricingData[lang].g2.forEach((c,i)=>{
+    const card=document.createElement('div');
+    card.className='pricing-card'+(i===1?' gold-only':'');
+    const lis=c.includes.map(li=>`<li>${li}</li>`).join('');
+    card.innerHTML=`<p class="pc-navi">${c.navi}</p><p class="pc-title">${c.title}</p><ul class="pc-includes">${lis}</ul><p class="pc-price">${c.price}</p>`;
+    og.appendChild(card);
+  });
+  // Commercial terms
+  const ct=document.getElementById('com-terms');
+  if(ct) ct.innerHTML=T[lang].com_terms.map(t=>`<div class="commercial-term"><p class="ct-label">${t.label}</p><p class="ct-text">${t.text}</p></div>`).join('');
+}
+
+/* ═══════════════════════════════════════════
+   TOS / FAQ
+═══════════════════════════════════════════ */
+function renderTOS(){
+  document.getElementById('tos-list').innerHTML='<div class="tos-deco">§</div>'+
+    tosData[currentLang].map(r=>`<div class="tos-rule"><div class="tos-num">${r.num}</div><div class="tos-content"><h3>${r.h}</h3><span class="tag tag-${r.tag}">${r.tagText}</span><p>${r.p}</p></div></div>`).join('');
+}
+function renderFAQ(){
+  document.getElementById('faq-list').innerHTML=faqData[currentLang].map((f,i)=>`
+    <div class="faq-item" id="faq-${i}">
+      <button class="faq-q" onclick="toggleFaq(${i})"><span>${f.q}</span><span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>${f.a}</p></div></div>`).join('');
+}
+function toggleFaq(i){
+  const item=document.getElementById('faq-'+i);const was=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(el=>el.classList.remove('open'));
+  if(!was) item.classList.add('open');
+}
+
+/* ═══════════════════════════════════════════
+   ADMIN
+═══════════════════════════════════════════ */
+function openAdmin(){
+  document.getElementById('admin-panel').classList.add('open');
+  document.body.style.overflow='hidden';
+  renderAdminAdopts(); renderAdminClaims(); renderAdminSales();
+}
+function closeAdmin(){
+  document.getElementById('admin-panel').classList.remove('open');
+  document.body.style.overflow='';
+}
+function showTab(tab){
+  ['adopts','claims','sales'].forEach(t=>{
+    document.getElementById('tab-'+t).style.display=t===tab?'block':'none';
+  });
+  document.querySelectorAll('.admin-tab').forEach((t,i)=>t.classList.toggle('active',['adopts','claims','sales'][i]===tab));
+}
+
+function renderAdminAdopts(){
+  const l=currentLang; const tab=document.getElementById('tab-adopts');
+  const faunaChecks=FAUNA_LIST.map(f=>`<label class="fauna-cb"><input type="checkbox" value="${f}" id="fc-${f}"> ${f}</label>`).join('');
+  tab.innerHTML=`
+    <div class="add-adopt-form">
+      <h3>${T[l].adm_add_title}</h3>
+      <div class="form-grid">
+        <div class="form-field"><label>${T[l].adm_fn}</label><input id="nw-name" type="text"></div>
+        <div class="form-field"><label>${T[l].adm_fp}</label><input id="nw-price" type="text" placeholder="40 €"></div>
+        <div class="form-field"><label>${T[l].adm_fe}</label><input id="nw-emoji" type="text" placeholder="✦" maxlength="2"></div>
+        <div class="form-field"><label>${T[l].adm_fm}</label>
+          <select id="nw-mode">
+            <option value="standard">Standard</option>
+            <option value="claim">Claim</option>
+            <option value="auction">Auction</option>
+          </select>
+        </div>
+        <div class="form-field"><label>${T[l].adm_fab} (auction)</label><input id="nw-ab" type="number" placeholder="ex: 80"></div>
+      </div>
+      <div class="form-field" style="margin-bottom:.65rem"><label>${T[l].adm_fi}</label><textarea id="nw-imgs" rows="3" placeholder="https://i.ibb.co/..."></textarea></div>
+      <div class="form-field" style="margin-bottom:.65rem"><label>${T[l].adm_fd}</label><textarea id="nw-desc" rows="2"></textarea></div>
+      <div class="form-field" style="margin-bottom:.65rem"><label>${T[l].adm_fo}</label><textarea id="nw-outfits" rows="3"></textarea></div>
+      <div class="form-field"><label>${T[l].adm_ff}</label><div class="fauna-checkboxes">${faunaChecks}</div></div>
+      <p class="form-note">Images : héberge sur imgbb.com → colle les URLs directes</p>
+      <button class="add-adopt-btn" onclick="addNewAdopt()">${T[l].adm_fb}</button>
+    </div>
+    <div class="admin-adopt-list" id="admin-rows"></div>`;
+
+  const rows=document.getElementById('admin-rows');
+  adopts.forEach(a=>{
+    const row=document.createElement('div'); row.className='admin-row';
+    const owners=a.owners?.map((o,i)=>`<div class="entry-row"><span class="er-main">${o.name}</span><span class="er-sub">${o.date}</span><button class="er-del" onclick="delOwner(${a.id},${i})">✕</button></div>`).join('')||`<span style="font-size:.73rem;color:var(--text-dim);font-style:italic">Aucun</span>`;
+    const modeLabel=a.mode==='auction'?` (auction${a.auction?.active?' active':''})`:'';
+    const auctionControls=a.mode==='auction'?`<div class="admin-auction-controls">
+      ${a.auction?.active?`<button class="admin-auction-btn btn-end-auction" onclick="endAuction(${a.id})">${l==='fr'?'Clôturer':'Close auction'}</button>`:`<button class="admin-auction-btn btn-start-auction" onclick="startAuction(${a.id})">${l==='fr'?'Réouvrir':'Reopen auction'}</button>`}
+    </div>`:'';
+    row.innerHTML=`
+      <div class="admin-row-top">
+        <span class="admin-row-name">${a.name}<span style="font-size:.7rem;color:var(--text-dim)"> ${modeLabel}</span></span>
+        <button class="admin-toggle ${a.taken?'taken':'available'}" onclick="toggleAdopt(${a.id})">${a.taken?T[l].adm_tk:T[l].adm_av}</button>
+      </div>
+      ${auctionControls}
+      <div class="admin-row-section"><label>${T[l].adm_owner_lbl}</label>
+        <div class="owner-entries">${owners}</div>
+        <div class="add-row">
+          <input class="add-input" id="oi-${a.id}" placeholder="@pseudo" onkeydown="if(event.key==='Enter')addOwner(${a.id})">
+          <button class="add-btn" onclick="addOwner(${a.id})">${T[l].adm_oa}</button>
+        </div>
+      </div>`;
+    rows.appendChild(row);
+  });
+}
+
+function renderAdminClaims(){
+  const l=currentLang; const tab=document.getElementById('tab-claims');
+  const hasClaims=adopts.some(a=>(a.claims?.length||0)>0);
+  const hasAuctions=adopts.some(a=>a.mode==='auction');
+  if(!hasClaims&&!hasAuctions){tab.innerHTML=`<p class="sales-empty">${l==='fr'?'Aucun claim ni enchère pour le moment.':'No claims or bids yet.'}</p>`;return;}
+  let html='';
+  adopts.forEach(a=>{
+    const claims=a.claims||[];
+    const bids=a.auction?.bids||[];
+    if(!claims.length&&!bids.length) return;
+    html+=`<div class="admin-row"><div class="admin-row-top"><span class="admin-row-name">${a.name}</span></div>`;
+    if(claims.length){
+      html+=`<div class="admin-row-section"><label>${T[l].adm_claim_lbl}</label><div class="claim-entries">
+        ${claims.map((c,i)=>`<div class="entry-row"><span class="er-main">${c.pseudo}</span><span class="er-sub">${c.network} — ${c.date}</span><button class="er-del" onclick="delClaim(${a.id},${i})">✕</button></div>`).join('')}
+      </div></div>`;
+    }
+    if(bids.length){
+      const sorted=[...bids].sort((x,y)=>y.amount-x.amount);
+      html+=`<div class="admin-row-section"><label>${T[l].adm_bid_lbl}</label><div class="bid-entries">
+        ${sorted.map((b,i)=>`<div class="entry-row"><span class="er-main">${b.pseudo}</span><span class="er-sub">${b.amount} € — ${b.date}</span></div>`).join('')}
+      </div></div>`;
+    }
+    html+='</div>';
+  });
+  tab.innerHTML=html||`<p class="sales-empty">${l==='fr'?'Aucune donnée.':'No data.'}</p>`;
+}
+
+function renderAdminSales(){
+  const box=document.getElementById('tab-sales');
+  const all=[];
+  adopts.forEach(a=>a.owners?.forEach(o=>all.push({adopt:a.name,owner:o.name,date:o.date,price:a.price})));
+  if(!all.length){box.innerHTML=`<p class="sales-empty">${currentLang==='fr'?'Aucune vente.':'No sales yet.'}</p>`;return;}
+  all.sort((a,b)=>b.date.localeCompare(a.date));
+  box.innerHTML=`<table class="sales-table"><thead><tr><th>Adopt</th><th>Owner</th><th>Date</th><th>Prix</th></tr></thead><tbody>${all.map(r=>`<tr><td>${r.adopt}</td><td>${r.owner}</td><td>${r.date}</td><td>${r.price}</td></tr>`).join('')}</tbody></table>`;
+}
+
+async function addNewAdopt(){
+  const name=document.getElementById('nw-name').value.trim(); if(!name) return;
+  const price=document.getElementById('nw-price').value.trim()||'?? €';
+  const emoji=document.getElementById('nw-emoji').value.trim()||'✦';
+  const mode=document.getElementById('nw-mode').value;
+  const abPrice=parseFloat(document.getElementById('nw-ab').value)||null;
+  const imgs=document.getElementById('nw-imgs').value.trim().split('\n').map(s=>s.trim()).filter(Boolean);
+  const desc=document.getElementById('nw-desc').value.trim();
+  const outfits=document.getElementById('nw-outfits').value.trim().split('\n').map(s=>s.trim()).filter(Boolean);
+  const fauna=FAUNA_LIST.filter(f=>document.getElementById('fc-'+f)?.checked);
+  const payload={name,placeholder:emoji,images:imgs,price,taken:false,mode,fauna,description:desc,outfits,
+    auction_active:mode==='auction',auction_autobuy_price:mode==='auction'?abPrice:null};
+  const row=await sbFetch('adopts',{method:'POST',body:JSON.stringify(payload)});
+  if(row&&row[0]){
+    const a={...row[0],desc:row[0].description,owners:[],claims:[],
+      auction:mode==='auction'?{active:true,autobuyPrice:abPrice,endsAt:null,bids:[]}:undefined};
+    adopts.push(a);
+    nextId=Math.max(nextId,a.id+1);
+  }
+  renderAdopts(); renderAdminAdopts(); renderAdminClaims(); renderAdminSales();
+  if(document.getElementById('gallery-page').classList.contains('open')) renderGalleryPage();
+}
+
+async function toggleAdopt(id){
+  const a=adopts.find(x=>x.id===id); if(!a) return;
+  a.taken=!a.taken;
+  await sbFetch(`adopts?id=eq.${id}`,{method:'PATCH',prefer:'return=minimal',body:JSON.stringify({taken:a.taken})});
+  renderAdopts(); renderAdminAdopts(); renderAdminSales();
+  if(document.getElementById('gallery-page').classList.contains('open')) renderGalleryPage();
+}
+
+async function addOwner(id){
+  const input=document.getElementById('oi-'+id);
+  const name=input.value.trim(); if(!name) return;
+  const a=adopts.find(x=>x.id===id); if(!a) return;
+  const row=await sbFetch('owners',{method:'POST',body:JSON.stringify({adopt_id:id,pseudo:name,date:new Date().toISOString().slice(0,10)})});
+  if(!a.owners) a.owners=[];
+  a.owners.push({name,date:new Date().toISOString().slice(0,10),dbId:row?.[0]?.id});
+  a.taken=true; input.value='';
+  await sbFetch(`adopts?id=eq.${id}`,{method:'PATCH',prefer:'return=minimal',body:JSON.stringify({taken:true})});
+  renderAdopts(); renderAdminAdopts(); renderAdminSales();
+  if(document.getElementById('gallery-page').classList.contains('open')) renderGalleryPage();
+}
+
+async function delOwner(id,idx){
+  const a=adopts.find(x=>x.id===id); if(!a) return;
+  const owner=a.owners[idx];
+  if(owner?.dbId) await sbFetch(`owners?id=eq.${owner.dbId}`,{method:'DELETE',prefer:'return=minimal'});
+  a.owners.splice(idx,1);
+  renderAdminAdopts(); renderAdminSales();
+}
+
+async function delClaim(id,idx){
+  const a=adopts.find(x=>x.id===id); if(!a||!a.claims) return;
+  const claim=a.claims[idx];
+  if(claim?.dbId) await sbFetch(`claims?id=eq.${claim.dbId}`,{method:'DELETE',prefer:'return=minimal'});
+  a.claims.splice(idx,1);
+  renderAdminClaims(); renderAdopts();
+  if(document.getElementById('gallery-page').classList.contains('open')) renderGalleryPage();
+}
+
+async function startAuction(id){
+  const a=adopts.find(x=>x.id===id); if(!a) return;
+  if(!a.auction) a.auction={active:true,autobuyPrice:null,endsAt:null,bids:[]};
+  a.auction.active=true; a.mode='auction';
+  await sbFetch(`adopts?id=eq.${id}`,{method:'PATCH',prefer:'return=minimal',body:JSON.stringify({mode:'auction',auction_active:true})});
+  renderAdopts(); renderAdminAdopts();
+  if(document.getElementById('gallery-page').classList.contains('open')) renderGalleryPage();
+}
+
+async function endAuction(id){
+  const a=adopts.find(x=>x.id===id); if(!a||!a.auction) return;
+  a.auction.active=false;
+  await sbFetch(`adopts?id=eq.${id}`,{method:'PATCH',prefer:'return=minimal',body:JSON.stringify({auction_active:false})});
+  renderAdopts(); renderAdminAdopts();
+  if(document.getElementById('gallery-page').classList.contains('open')) renderGalleryPage();
+}
+
+/* ═══════════════════════════════════════════
+   LANG
+═══════════════════════════════════════════ */
+let currentLang='fr';
+function setLang(lang){
+  currentLang=lang;
+  document.documentElement.lang=lang;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.trim().toLowerCase()===lang));
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(T[lang][k]!==undefined&&typeof T[lang][k]==='string') el.textContent=T[lang][k];
+  });
+  // schedule uses innerHTML for strong/small tags
+  ['sch_week','sch_eve','sch_wknd'].forEach(k=>{
+    document.querySelectorAll('[data-i18n="'+k+'"]').forEach(el=>{el.innerHTML=T[lang][k];});
+  });
+  renderAdopts(); renderPricing(); renderTOS(); renderFAQ();
+  if(document.getElementById('gallery-page').classList.contains('open')) renderGalleryPage();
+}
+
+/* ═══════════════════════════════════════════
+   PARTICLES
+═══════════════════════════════════════════ */
+(function(){
+  const c=document.getElementById('particles');
+  for(let i=0;i<28;i++){
+    const p=document.createElement('div'); p.className='particle';
+    p.style.cssText=`left:${Math.random()*100}%;bottom:-10px;--drift:${Math.random()*70-35}px;animation-duration:${10+Math.random()*22}s;animation-delay:${Math.random()*16}s;width:${1+Math.random()*2.5}px;height:${1+Math.random()*2.5}px;background:${Math.random()>.7?'var(--gold)':'var(--accent2)'}`;
+    c.appendChild(p);
+  }
+})();
+
+// Init : set lang first (renders static sections), then load Supabase data
+currentLang='fr';
+document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.trim().toLowerCase()==='fr'));
+document.querySelectorAll('[data-i18n]').forEach(el=>{
+  const k=el.getAttribute('data-i18n');
+  if(T['fr'][k]!==undefined&&typeof T['fr'][k]==='string') el.textContent=T['fr'][k];
+});
+['sch_week','sch_eve','sch_wknd'].forEach(k=>{
+  document.querySelectorAll('[data-i18n="'+k+'"]').forEach(el=>{el.innerHTML=T['fr'][k];});
+});
+renderPricing(); renderTOS(); renderFAQ();
+loadAllData();
+</script>
+</body>
+</html>
